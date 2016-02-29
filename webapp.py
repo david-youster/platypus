@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/home')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='Home')
+    return render_template('index.html', title='Home', articles=get_articles())
 
 
 @app.errorhandler(404)
