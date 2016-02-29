@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog {% if title %} | {{title}} {% endif %}</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>Blog</h1>
+                {% if title %}<h2>{{title}}</h2>{% endif %}
+            </header>
+            <main>
+                {% block body %}{% endblock %}
+            </main>
+        </div>
+    </body>
+</html>
