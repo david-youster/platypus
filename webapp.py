@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect
-from sqlalchemy import create_engine, Column, Integer, String, Boolean
+from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
+import model
 
 app = Flask(__name__)
 
@@ -12,32 +13,9 @@ db_session = scoped_session(sessionmaker(autocommit=False,
 Base = declarative_base()
 Base.query = db_session.query_property()
 
-class User(Base):
-    __tablename__ = 'User'
-    id_ = Column(Integer, primary_key=True)
-    login = Column(String, unique=True)
-    salt = Column(String)
-    password_hash = Column(String)
-    admin = Column(Boolean)
 
-    def __repr__(self):
-        return '<User(login={}, salt={}, password_hash={}, admin={})>'.format(
-                self.login, self.salt, self.password_hash, self.admin)
-
-
-class Article(Base):
-    __tablename__ = 'Article'
-    id_ = Column(Integer, primary_key=True)
-    title = Column(String)
-    snippet = Column(String)
-    text = Column(String)
-
-    def __repr__(self):
-        return '<Article(title="{}", snippet="{}", text="{}")>'.format(
-                self.name, self.snippet, self.text)
-
-
-Base.metadata.create_all(bind=engine)
+def init_db():
+    Base.metadata.create_all(bind=engine)
 
 
 @app.route('/')
@@ -69,17 +47,18 @@ def not_found(error):
 
 
 def create_article(title, text):
-    article = Article(title=title, snippet=text, text=text)
+    article = model.Article(title=title, snippet=text, text=text)
     db_session.add(article)
     db_session.commit()
 
 
 def get_articles():
-    return db_session.query(Article).all()
+    return db_session.query(model.Article).all()
 
 
 def get_article(article_id):
     return None
 
 if __name__ == '__main__':
+    init_db()
     app.run(debug=True)
