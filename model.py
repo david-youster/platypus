@@ -11,7 +11,7 @@ class User(Base):
     salt = Column(String)
     password_hash = Column(String)
     admin = Column(Boolean)
-    user = relationship('Article', backref='User')
+    articles = relationship('Article', backref='User')
 
     def __repr__(self):
         return '<User(login={}, salt={}, password_hash={}, admin={})>'.format(
