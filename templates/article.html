@@ -1,9 +1,15 @@
-{% set title = article.title %}
-
 {% extends 'base.html' %}
+
+{% if article %}
+    {% set title = article.title %}
+    {% set text = article.text %}
+{% else %}
+    {% set title = 'Article Not Found' %}
+    {% set text = 'No article found.' %}
+{% endif %}
 
 {% block body %}
     <article>
-        {{ article.text }}
+        {{ text }}
     </article>
 {% endblock %}
