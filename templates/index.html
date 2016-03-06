@@ -4,7 +4,7 @@
     {% for article in articles %}
         <article>
             <header>
-                <h1>{{ article.title }}</h1>
+                <a href="/article/{{ article.id_ }}"><h1>{{ article.title }}</h1></a>
                 <span>{{ article.publication_date }}</span>
             </header>
             <p>{{ article.snippet }}</p>
