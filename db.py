@@ -8,7 +8,7 @@ session = scoped_session(sessionmaker(autocommit=False,
         bind=engine))
 Base = declarative_base()
 Base.query = session.query_property()
-import model
+from model import Article, User, Role
 
 def init():
     Base.metadata.create_all(bind=engine)
@@ -21,8 +21,8 @@ def create_article(title, text):
 
 
 def get_articles():
-    return session.query(model.Article).all()
+    return session.query(Article).all()
 
 
 def get_article(article_id):
-    return None
+    return session.query(Article).filter(Article.id_ == article_id).first()
