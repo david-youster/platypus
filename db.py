@@ -8,22 +8,19 @@ session = scoped_session(sessionmaker(autocommit=False,
         bind=engine))
 Base = declarative_base()
 Base.query = session.query_property()
-
+import model
 
 def init():
-    import model
     Base.metadata.create_all(bind=engine)
 
 
 def create_article(title, text):
-    import model
     article = model.Article(title=title, snippet=text, text=text)
     session.add(article)
     session.commit()
 
 
 def get_articles():
-    import model
     return session.query(model.Article).all()
 
 
