@@ -4,7 +4,7 @@ from user import generate_password_hash
 import db
 
 app = Flask(__name__)
-app.secret_key = 'thisisthesecrectkey'
+app.secret_key = '9l2+y#cit1)yvm4douh_uv=wh1cm0w3nevpv7v(8$e*qan8n3+'
 
 
 def check_admin(function):
