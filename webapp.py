@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session
 from functools import wraps
-from user import generate_password_hash
+from util import generate_password_hash
 import db
 
 app = Flask(__name__)

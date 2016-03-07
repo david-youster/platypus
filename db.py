@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy_utils import database_exists
-from user import generate_salt, generate_password_hash
+from util import generate_salt, generate_password_hash
 
 _DATABASE = 'sqlite:///test.db'
 
