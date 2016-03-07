@@ -10,7 +10,7 @@ app.secret_key = '9l2+y#cit1)yvm4douh_uv=wh1cm0w3nevpv7v(8$e*qan8n3+'
 def check_admin(function):
     @wraps(function)
     def wrapped_function(*args, **kwargs):
-        if 'admin' in session['roles']:
+        if user_has_role('admin'):
             return function(*args, **kwargs)
         return redirect('/index')
     return wrapped_function
@@ -19,10 +19,15 @@ def check_admin(function):
 def check_author(function):
     @wraps(function)
     def wrapped_function(*args, **kwargs):
-        if 'author' in session['roles']:
+        if user_has_role('author'):
             return function(*args, **kwargs)
         return redirect('/index')
     return wrapped_function
+
+
+def user_has_role(role_name):
+    roles = session.pop('roles', [])
+    return role_name in roles
 
 
 def check_anon(function):
@@ -93,6 +98,7 @@ def article(article_id):
 
 
 @app.route('/addarticle', methods=['GET', 'POST'])
+@check_author
 def add_article():
     if request.method == 'GET':
         return add_article_get()
