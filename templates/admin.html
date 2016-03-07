@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <form action="/admin/createuser" method="post">
+        <label for="login">User Login</label>
+        <input type="text" id="login" name="login" required>
+        <label for="password">User Password</label>
+        <input type="password" id="password" name="password" required>
+        <label for="roles">Roles</label>
+        <label for="role-author">Author</label>
+        <input type="checkbox" name="roles"  id="role-author" value="author" checked>
+        <label for="role-amdin">Admin</label>
+        <input type="checkbox" name="roles" id="role-admin" value="admin">
+        <input type="submit" value="Create User">
+    </form>
+{% endblock %}
