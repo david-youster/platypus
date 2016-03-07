@@ -16,19 +16,21 @@ class User(Base):
     login = Column(String, unique=True)
     salt = Column(String)
     password_hash = Column(String)
-    admin = Column(Boolean)
     articles = relationship('Article', backref='User')
     roles = relationship('Role', secondary=user_role, backref='users')
 
     def __repr__(self):
-        return '<User(login={}, salt={}, password_hash={}, admin={})>'.format(
-                self.login, self.salt, self.password_hash, self.admin)
+        return '<User(login="{}", password_hash="{}",  salt="{}")>'.format(
+                self.login, self.password_hash, self.salt)
 
 
 class Role(Base):
     __tablename__ = 'Role'
     id_ = Column(Integer, primary_key=True)
-    name = Column(String)
+    name = Column(String, unique=True)
+
+    def __repr__(self):
+        return '<Role(name="{}")>'.format(self.name)
 
 
 class Article(Base):
@@ -42,6 +44,6 @@ class Article(Base):
     author_id = Column(Integer, ForeignKey('User.id_'))
 
     def __repr__(self):
-        return '<Article(title="{}", snippet="{}", text="{}")>'.format(
-                self.name, self.snippet, self.text)
+        r = '<Article(title="{}", snippet="{}", text="{}", author={})>'
+        return r.format(self.name, self.snippet, self.text, self.author_id)
 
