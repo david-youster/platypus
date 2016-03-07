@@ -80,12 +80,18 @@ def article(article_id):
     return render_template('article.html', article=article)
 
 
-@app.route('/addarticle')
+@app.route('/addarticle', methods=['GET', 'POST'])
 def add_article():
+    if request.method == 'GET':
+        return add_article_get()
+    else:
+        return add_article_post()
+
+
+def add_article_get():
     return render_template('addcontent.html', title='Add Content')
 
 
-@app.route('/addarticle', methods=['POST'])
 def add_article_post():
     db.create_article(request.form['title'], request.form['text'])
     return redirect('/addarticle')
