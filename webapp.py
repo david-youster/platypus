@@ -1,7 +1,37 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
+from functools import wraps
+from user import generate_password_hash
 import db
 
 app = Flask(__name__)
+app.secret_key = 'thisisthesecrectkey'
+
+
+def check_admin(function):
+    @wraps(function)
+    def wrapped_function(*args, **kwargs):
+        if 'admin' in session['roles']:
+            return function(*args, **kwargs)
+        return redirect('/index')
+    return wrapped_function
+
+
+def check_author(function):
+    @wraps(function)
+    def wrapped_function(*args, **kwargs):
+        if 'author' in session['roles']:
+            return function(*args, **kwargs)
+        return redirect('/index')
+    return wrapped_function
+
+
+def check_anon(function):
+    @wraps(function)
+    def wrapped_function(*args, **kwargs):
+        if 'logged_in' in session:
+            return  redirect('/index')
+        return function(*args, **kwargs)
+    return wrapped_function
 
 
 @app.route('/')
@@ -9,8 +39,35 @@ app = Flask(__name__)
 @app.route('/index')
 def index():
     return render_template('index.html', 
-            title='Home', 
+            title='Home',
             articles=db.get_articles())
+
+
+@app.route('/login')
+@check_anon
+def login():
+    return render_template('login.html', title='Login')
+
+
+@app.route('/login', methods=['POST'])
+@check_anon
+def login_post():
+    log_in_user(request.form['login-name'], request.form['login-password'])
+    return redirect('/index')
+
+
+def log_in_user(login, password):
+    user = db.get_user(login)
+    if credentials_ok(user, password):
+        session['logged_in'] = user.login
+
+
+def credentials_ok(user, password):
+    if user:
+        password_hash = generate_password_hash(password, user.salt)
+        if password_hash == user.password_hash:
+            return True
+    return False
 
 
 @app.route('/article/<article_id>')
