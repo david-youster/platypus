@@ -64,6 +64,7 @@ def log_in_user(login, password):
     user = db.get_user(login)
     if credentials_ok(user, password):
         session['logged_in'] = user.login
+        session['roles'] = [role.name for role in user.roles]
 
 
 def credentials_ok(user, password):
@@ -72,6 +73,17 @@ def credentials_ok(user, password):
         if password_hash == user.password_hash:
             return True
     return False
+
+
+@app.route('/logout')
+def logout():
+    log_out_user()
+    return redirect('/index')
+
+
+def log_out_user():
+    session.pop('logged_in', None)
+    session.pop('roles', None)
 
 
 @app.route('/article/<article_id>')
