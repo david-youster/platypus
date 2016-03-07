@@ -43,14 +43,18 @@ def index():
             articles=db.get_articles())
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET','POST'])
 @check_anon
 def login():
+    if request.method == 'GET':
+        return login_get()
+    return login_post()
+
+
+def login_get():
     return render_template('login.html', title='Login')
 
 
-@app.route('/login', methods=['POST'])
-@check_anon
 def login_post():
     log_in_user(request.form['login-name'], request.form['login-password'])
     return redirect('/index')
