@@ -6,6 +6,7 @@ from user import generate_salt, generate_password_hash
 
 _DATABASE = 'sqlite:///test.db'
 
+setup = database_exists(_DATABASE)
 engine = create_engine(_DATABASE, echo=True)
 session = scoped_session(sessionmaker(autocommit=False, 
         autoflush=False, 
@@ -17,7 +18,7 @@ from model import Article, User, Role
 
 def init():
     Base.metadata.create_all(bind=engine)
-    if not database_exists(_DATABASE):
+    if not setup:
         init_role_table()
         init_user_table()
 
