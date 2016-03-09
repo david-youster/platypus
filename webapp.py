@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session
 from functools import wraps
-from util import generate_password_hash
+from util import generate_salt, generate_password_hash
 import db
 
 app = Flask(__name__)
@@ -89,6 +89,28 @@ def logout():
 def log_out_user():
     session.pop('logged_in', None)
     session.pop('roles', None)
+
+
+@app.route('/admin')
+@check_admin
+def admin():
+    return render_template('admin.html', title='Admin', roles=db.get_roles())
+
+
+@app.route('/admin/createuser', methods=['POST'])
+@check_admin
+def admin_create_user():
+    create_user(request.form['login'],
+            request.form['password'], 
+            request.form.getlist('roles'))
+    return redirect('/admin')
+
+
+def create_user(login, password, roles):
+    salt = generate_salt()
+    password_hash = generate_password_hash(password, salt)
+    roles = [db.get_role(role) for role in roles]
+    db.create_user(login, password_hash, salt, roles)
 
 
 @app.route('/article/<article_id>')
