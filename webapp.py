@@ -26,7 +26,7 @@ def check_author(function):
 
 
 def user_has_role(role_name):
-    roles = session.pop('roles', [])
+    roles = session.get('roles', [])
     return role_name in roles
 
 
