@@ -41,7 +41,7 @@ main {
     padding-left: 1em;
     padding-right: 2em;
     padding-bottom:1em;
-    background-color: $color-tertiary;
+    background-color: $color-primary;
     border: 1px solid gray;
     box-shadow: 1px 1px 1px black;
 
@@ -58,7 +58,7 @@ main {
             h1 {
                 display:block;
             }
-            
+
             border: none;
             box-shadow: none;
             background-color: $color-primary;
