@@ -13,6 +13,11 @@ header {
   box-shadow: 1px 1px 1px black;
   padding-left: 1em;
   padding-right: 2em; }
+  header h1 {
+    display: inline-block;
+    margin-right: 1em; }
+  header nav {
+    display: inline-block; }
 
 main {
   width: 60%;
@@ -23,8 +28,7 @@ main {
   border: 1px solid gray;
   box-shadow: 1px 1px 1px black; }
   main h2 {
-    font-size: 80%;
-    border-bottom: 1px solid gray; }
+    font-size: 80%; }
   main article {
     border-bottom: 1px solid #465B76;
     background-color: #E6EFFA; }
@@ -32,6 +36,8 @@ main {
       border: none;
       box-shadow: none;
       background-color: #E6EFFA; }
+      main article header h1 {
+        display: block; }
     main article span {
       font-size: 70%; }
     main article p {

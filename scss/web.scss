@@ -25,6 +25,15 @@ header {
     box-shadow: 1px 1px 1px black;
     padding-left: 1em;
     padding-right: 2em;
+
+    h1 {
+        display: inline-block;
+        margin-right:1em;
+    }
+
+    nav {
+        display: inline-block;
+    }
 }
 
 main {
@@ -38,7 +47,6 @@ main {
 
     h2 {
         font-size: 80%;
-        border-bottom: 1px solid gray;
     }
 
     article {
@@ -46,6 +54,11 @@ main {
         background-color: $color-primary;
 
         header {
+
+            h1 {
+                display:block;
+            }
+            
             border: none;
             box-shadow: none;
             background-color: $color-primary;
