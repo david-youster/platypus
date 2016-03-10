@@ -1,3 +1,68 @@
+$font-stack: Helvetica, Verdana, Geneva, sans-serif;
+
+
+//http://paletton.com/#uid=13D0u0k6OK62QZk52S+a4u7e9mA
+$color-primary: #E6EFFA;
+$color-secondary: #465B76;
+$color-tertiary: #C8D6E9;
+
+$main-column-width: 60%;
+
 * {
-	border: 1px dotted black;
+    font-family: $font-stack;
+}
+
+body {
+    background-color: $color-secondary;
+    padding-left: 2em;
+}
+
+header {
+    width: $main-column-width;
+    background-color: $color-tertiary;
+    margin-bottom: 2em;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px black;
+    padding-left: 1em;
+    padding-right: 2em;
+}
+
+main {
+    width: $main-column-width;
+    padding-left: 1em;
+    padding-right: 2em;
+    padding-bottom:1em;
+    background-color: $color-tertiary;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px black;
+
+    h2 {
+        font-size: 80%;
+        border-bottom: 1px solid gray;
+    }
+
+    article {
+        border-bottom: 1px solid $color-secondary;
+        background-color: $color-primary;
+
+        header {
+            border: none;
+            box-shadow: none;
+            background-color: $color-primary;
+        }
+
+        span {
+            font-size: 70%;
+        }   
+
+        p {
+            font-size: 80%;
+            padding-left: 1em;
+        }
+    }
+}
+
+footer {
+    margin-top:1em;
+    font-size: 70%;
 }
