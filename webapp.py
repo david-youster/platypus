@@ -25,11 +25,6 @@ def check_author(function):
     return wrapped_function
 
 
-def user_has_role(role_name):
-    roles = session.get('roles', [])
-    return role_name in roles
-
-
 def check_anon(function):
     @wraps(function)
     def wrapped_function(*args, **kwargs):
@@ -37,6 +32,15 @@ def check_anon(function):
             return  redirect('/index')
         return function(*args, **kwargs)
     return wrapped_function
+
+
+def user_logged_in():
+    return 'logged_in' in session.keys()
+
+
+def user_has_role(role_name):
+    roles = session.get('roles', [])
+    return role_name in roles
 
 
 @app.route('/')
@@ -150,4 +154,6 @@ def shutdown_session(exception=None):
 
 if __name__ == '__main__':
     db.init()
+    app.jinja_env.globals.update(user_has_role=user_has_role,
+            user_logged_in=user_logged_in)
     app.run(debug=True)

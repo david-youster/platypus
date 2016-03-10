@@ -9,6 +9,21 @@
         <div id="wrapper">
             <header>
                 <h1>Blog</h1>
+                <nav>
+                    <a href="/index">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/links">Links</a>
+                    {% if user_has_role('admin') %}
+                        <a href="/admin">Admin</a>
+                    {% endif %}
+                    {% if user_has_role('author') %}
+                        <a href="/author">Author</a>
+                    {% endif %}
+                    {% if user_logged_in() %}
+                        <a href="/logout">Log Out</a>
+                    {% endif %}
+                </nav>
                 {% if title %}<h2>{{ title }}</h2>{% endif %}
             </header>
             <main>
