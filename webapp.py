@@ -29,7 +29,7 @@ def check_anon(function):
     @wraps(function)
     def wrapped_function(*args, **kwargs):
         if 'logged_in' in session:
-            return  redirect('/index')
+            return redirect('/index')
         return function(*args, **kwargs)
     return wrapped_function
 
@@ -47,12 +47,13 @@ def user_has_role(role_name):
 @app.route('/home')
 @app.route('/index')
 def index():
-    return render_template('index.html', 
-            title='Home',
-            articles=db.get_articles())
+    return render_template(
+        'index.html',
+        title='Home',
+        articles=db.get_articles())
 
 
-@app.route('/login', methods=['GET','POST'])
+@app.route('/login', methods=['GET', 'POST'])
 @check_anon
 def login():
     if request.method == 'GET':
@@ -104,9 +105,10 @@ def admin():
 @app.route('/admin/createuser', methods=['POST'])
 @check_admin
 def admin_create_user():
-    create_user(request.form['login'],
-            request.form['password'], 
-            request.form.getlist('roles'))
+    create_user(
+        request.form['login'],
+        request.form['password'],
+        request.form.getlist('roles'))
     return redirect('/admin')
 
 
@@ -154,6 +156,7 @@ def shutdown_session(exception=None):
 
 if __name__ == '__main__':
     db.init()
-    app.jinja_env.globals.update(user_has_role=user_has_role,
-            user_logged_in=user_logged_in)
+    app.jinja_env.globals.update(
+        user_has_role=user_has_role,
+        user_logged_in=user_logged_in)
     app.run(debug=True)

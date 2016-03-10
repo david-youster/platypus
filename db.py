@@ -8,9 +8,10 @@ _DATABASE = 'sqlite:///test.db'
 
 setup = database_exists(_DATABASE)
 engine = create_engine(_DATABASE, echo=True)
-session = scoped_session(sessionmaker(autocommit=False, 
-        autoflush=False, 
-        bind=engine))
+session = scoped_session(sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine))
 Base = declarative_base()
 Base.query = session.query_property()
 from model import Article, User, Role
@@ -81,4 +82,3 @@ def get_article(article_id):
 
 def get_article_latest():
     return session.query(Article).order_by(Article.id_.desc()).first()
-

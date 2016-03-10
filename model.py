@@ -5,9 +5,11 @@ from datetime import datetime
 from db import Base
 
 
-user_role = Table('UserRole', Base.metadata,
-        Column('user_id', Integer, ForeignKey('User.id_')),
-        Column('role_id', Integer, ForeignKey('Role.id_')))
+user_role = Table(
+    'UserRole',
+    Base.metadata,
+    Column('user_id', Integer, ForeignKey('User.id_')),
+    Column('role_id', Integer, ForeignKey('Role.id_')))
 
 
 class User(Base):
@@ -21,7 +23,7 @@ class User(Base):
 
     def __repr__(self):
         return '<User(login="{}", password_hash="{}",  salt="{}")>'.format(
-                self.login, self.password_hash, self.salt)
+            self.login, self.password_hash, self.salt)
 
 
 class Role(Base):
@@ -46,4 +48,3 @@ class Article(Base):
     def __repr__(self):
         r = '<Article(title="{}", snippet="{}", text="{}", author={})>'
         return r.format(self.name, self.snippet, self.text, self.author_id)
-
