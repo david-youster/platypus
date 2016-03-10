@@ -134,7 +134,8 @@ def add_article_get():
 
 def add_article_post():
     db.create_article(request.form['title'], request.form['text'])
-    return redirect('/addarticle')
+    article_id = db.get_article_latest().id_
+    return redirect('/article/{}'.format(article_id))
 
 
 @app.errorhandler(404)

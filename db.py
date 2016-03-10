@@ -78,3 +78,7 @@ def get_role(name):
 def get_article(article_id):
     return session.query(Article).filter(Article.id_ == article_id).first()
 
+
+def get_article_latest():
+    return session.query(Article).order_by(Article.id_.desc()).first()
+
