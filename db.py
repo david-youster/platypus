@@ -65,7 +65,7 @@ def get_roles():
 
 
 def get_articles():
-    return session.query(Article).all()
+    return session.query(Article).order_by(Article.id_.desc()).all()
 
 
 def get_user(login):
