@@ -18,7 +18,7 @@ class User(Base):
     login = Column(String, unique=True)
     salt = Column(String)
     password_hash = Column(String)
-    articles = relationship('Article', backref='User')
+    articles = relationship('Article', backref='author')
     roles = relationship('Role', secondary=user_role, backref='users')
 
     def __repr__(self):
