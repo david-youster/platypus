@@ -39,8 +39,7 @@ def user_logged_in():
 
 
 def user_has_role(role_name):
-    roles = session.get('roles', [])
-    return role_name in roles
+    return role_name in session.get('roles', [])
 
 
 @app.route('/')
