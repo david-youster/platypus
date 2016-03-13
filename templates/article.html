@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
-{% if article %}
-    {% set title = article.title %}
-    {% set text = article.text %}
-{% else %}
-    {% set title = 'Article Not Found' %}
-    {% set text = 'No article found.' %}
-{% endif %}
+{% set title = article.title if article else 'Article Not Found' %}
+{% set publication_date = article.publication_date if article else None %}
+{% set author = article.author.login if article else None %}
+{% set text = article.text if article else 'No article found.' %}
 
 {% block body %}
     <article>
-        {{ text }}
+        {% if publication_date %}<span>{{ publication_date }}</span> {% endif %}
+        {% if author %}<span>{{ author }}</span>{% endif %}
+        <div>
+            {{ text }}
+        </div>
     </article>
 {% endblock %}
