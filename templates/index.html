@@ -5,8 +5,8 @@
         <article>
             <header>
                 <h1><a href="/article/{{ article.id_ }}">{{ article.title }}</a></h1>
-                <span>{{ article.publication_date }}</span>
-                <span> {{ article.author.login }}</span>
+                <time>{{ article.publication_date }}</time>
+                <address> {{ article.author.login }}</address>
             </header>
             <p>{{ article.snippet }}</p>
         </article>
