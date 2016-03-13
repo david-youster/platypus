@@ -127,7 +127,7 @@ def article(article_id):
 
 @app.route('/author')
 @check_author
-def add_article():
+def author():
     return render_template('author.html', title='Author')
 
 
