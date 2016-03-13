@@ -68,6 +68,12 @@ def get_articles():
     return session.query(Article).order_by(Article.id_.desc()).all()
 
 
+def get_articles_by_author(login):
+    author = get_user(login)
+    return session.query(Article).filter(Article.author == author).order_by(
+        Article.id_.desc()).all()
+
+
 def get_user(login):
     return session.query(User).filter(User.login == login).first()
 

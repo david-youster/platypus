@@ -10,4 +10,18 @@
         <textarea id="text" name="text" required></textarea><br>
         <input type="submit" value="Submit">
     </form>
+
+    <div>
+        <table>
+            {% for article in articles %}
+                <tr>
+                    <td><a href="/article/{{ article.id_ }}">{{ article.title }}</a></td>
+                    <td>{{ article.snippet }}</td>
+                    <td>{{ article.publication_date }}</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}

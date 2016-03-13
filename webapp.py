@@ -127,7 +127,10 @@ def article(article_id):
 @app.route('/author')
 @check_author
 def author():
-    return render_template('author.html', title='Author')
+    return render_template(
+        'author.html',
+        title='Author',
+        articles=db.get_articles_by_author(session.get('logged_in')))
 
 
 @app.route('/author/createarticle', methods=['POST'])
@@ -154,8 +157,8 @@ def shutdown_session(exception=None):
 
 app.secret_key = '9l2+y#cit1)yvm4douh_uv=wh1cm0w3nevpv7v(8$e*qan8n3+'
 app.jinja_env.globals.update(
-        user_has_role=user_has_role,
-        user_logged_in=user_logged_in)
+    user_has_role=user_has_role,
+    user_logged_in=user_logged_in)
 assets = Environment(app)
 assets.url = app.static_url_path
 scss = Bundle('scss/web.scss', filters='pyscss', output='styles/web.css')
