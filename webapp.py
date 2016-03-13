@@ -137,7 +137,8 @@ def author_create_article():
     db.create_article(
         request.form['title'],
         request.form['snippet'],
-        request.form['text'])
+        request.form['text'],
+        db.get_user(session.get('logged_in')))
     article_id = db.get_article_latest().id_
     return redirect('/article/{}'.format(article_id))
 
