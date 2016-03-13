@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect, session
+from flask.ext.assets import Bundle, Environment
 from functools import wraps
 from util import generate_salt, generate_password_hash
 import db
 
 app = Flask(__name__)
-app.secret_key = '9l2+y#cit1)yvm4douh_uv=wh1cm0w3nevpv7v(8$e*qan8n3+'
 
 
 def check_admin(function):
@@ -152,9 +152,15 @@ def shutdown_session(exception=None):
     db.session.remove()
 
 
-if __name__ == '__main__':
-    db.init()
-    app.jinja_env.globals.update(
+app.secret_key = '9l2+y#cit1)yvm4douh_uv=wh1cm0w3nevpv7v(8$e*qan8n3+'
+app.jinja_env.globals.update(
         user_has_role=user_has_role,
         user_logged_in=user_logged_in)
+assets = Environment(app)
+assets.url = app.static_url_path
+scss = Bundle('scss/web.scss', filters='pyscss', output='styles/web.css')
+assets.register('scss_web', scss)
+db.init()
+
+if __name__ == '__main__':
     app.run(debug=True)

@@ -1,6 +1,5 @@
 __pycache__
-tmp
 *.db
-.sass-cache
 *sublime*
-
+static/styles/
+static/.webassets-cache

@@ -3,7 +3,9 @@
     <head>
         <title>Blog {% if title %} | {{title}} {% endif %}</title>
         <meta charset="utf-8">
-        <link href="{{ url_for('static', filename='styles/web.css') }}" rel="stylesheet" type="text/css">
+        {% assets 'scss_web' %}
+            <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+        {% endassets %}
     </head>
     <body>
         <div id="wrapper">
