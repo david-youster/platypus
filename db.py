@@ -50,8 +50,8 @@ def create_role(name):
     session.commit()
 
 
-def create_article(title, text):
-    article = Article(title=title, snippet=text, text=text)
+def create_article(title, snippet, text):
+    article = Article(title=title, snippet=snippet, text=text)
     session.add(article)
     session.commit()
 

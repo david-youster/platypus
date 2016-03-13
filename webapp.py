@@ -125,21 +125,19 @@ def article(article_id):
     return render_template('article.html', article=article)
 
 
-@app.route('/addarticle', methods=['GET', 'POST'])
+@app.route('/author')
 @check_author
 def add_article():
-    if request.method == 'GET':
-        return add_article_get()
-    else:
-        return add_article_post()
+    return render_template('author.html', title='Author')
 
 
-def add_article_get():
-    return render_template('addcontent.html', title='Add Content')
-
-
-def add_article_post():
-    db.create_article(request.form['title'], request.form['text'])
+@app.route('/author/createarticle', methods=['POST'])
+@check_author
+def author_create_article():
+    db.create_article(
+        request.form['title'],
+        request.form['snippet'],
+        request.form['text'])
     article_id = db.get_article_latest().id_
     return redirect('/article/{}'.format(article_id))
 

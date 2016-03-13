@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <form method="post" action="/addarticle">
+    <form method="post" action="/author/createarticle">
         <label for="title">Article Title</label>
         <input type="text" id="title" name="title" required><br>
+        <label for="snippet">Snippet</label>
+        <input type="text" id="snippet" name="snippet" required><br>
         <label for="text">Text</label>
         <textarea id="text" name="text" required></textarea><br>
         <input type="submit" value="Submit">
