@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <form action="/admin/createuser" method="post">
+    <form action="{{ url_for('admin_create_user') }}" method="post">
         <label for="login">User Login</label>
         <input type="text" id="login" name="login" required>
         <label for="password">User Password</label>

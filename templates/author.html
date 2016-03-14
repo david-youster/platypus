@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <form method="post" action="/author/createarticle">
+    <form method="post" action="{{ url_for('author_create_article') }}">
         <label for="title">Article Title</label>
         <input type="text" id="title" name="title" required><br>
         <label for="snippet">Snippet</label>
