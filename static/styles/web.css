@@ -38,7 +38,7 @@ main {
         background-color: #E6EFFA; }
         main article header h1 {
           display: block; }
-      main article span {
+      main article time, main article address {
         font-size: 70%; }
         main article p {
           font-size: 80%;
