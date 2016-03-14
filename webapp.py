@@ -118,8 +118,8 @@ def create_user(login, password, roles):
     db.create_user(login, password_hash, salt, roles)
 
 
-@app.route('/article/<article_id>')
-def article(article_id):
+@app.route('/article/display/<article_id>')
+def article_display(article_id):
     article = db.get_article(article_id)
     return render_template('article.html', article=article)
 
