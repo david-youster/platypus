@@ -124,6 +124,12 @@ def article_display(article_id):
     return render_template('article.html', article=article)
 
 
+@app.route('/article/delete/<article_id>')
+def article_delete(article_id):
+    db.delete_article(article_id);
+    return redirect('/index')
+
+
 @app.route('/author')
 @check_author
 def author():

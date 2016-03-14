@@ -88,3 +88,8 @@ def get_article(article_id):
 
 def get_article_latest():
     return session.query(Article).order_by(Article.id_.desc()).first()
+
+def delete_article(article_id):
+    session.query(Article).filter(Article.id_ == article_id).delete(
+        synchronize_session='evaluate')
+    session.commit()
