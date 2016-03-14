@@ -79,3 +79,12 @@ footer {
     margin-top:1em;
     font-size: 70%;
 }
+
+table {
+    width: 100%;
+    background-color: $color-secondary;
+
+    td {
+        background-color: $color-tertiary;
+    }
+}
