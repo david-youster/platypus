@@ -126,7 +126,7 @@ def article_display(article_id):
 
 @app.route('/article/delete/<article_id>')
 def article_delete(article_id):
-    db.delete_article(article_id);
+    db.delete_article(article_id)
     return redirect(url_for('index'))
 
 
