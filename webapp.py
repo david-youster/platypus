@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, url_for
 from flask.ext.assets import Bundle, Environment
 from functools import wraps
 from util import generate_salt, generate_password_hash
@@ -66,7 +66,7 @@ def login_get():
 
 def login_post():
     log_in_user(request.form['login-name'], request.form['login-password'])
-    return redirect('/index')
+    return redirect(url_for('index'))
 
 
 def log_in_user(login, password):
@@ -87,7 +87,7 @@ def credentials_ok(user, password):
 @app.route('/logout')
 def logout():
     log_out_user()
-    return redirect('/index')
+    return redirect(url_for('index'))
 
 
 def log_out_user():
@@ -108,7 +108,7 @@ def admin_create_user():
         request.form['login'],
         request.form['password'],
         request.form.getlist('roles'))
-    return redirect('/admin')
+    return redirect(url_for('admin'))
 
 
 def create_user(login, password, roles):
@@ -127,7 +127,7 @@ def article_display(article_id):
 @app.route('/article/delete/<article_id>')
 def article_delete(article_id):
     db.delete_article(article_id);
-    return redirect('/index')
+    return redirect(url_for('index'))
 
 
 @app.route('/author')
@@ -148,7 +148,7 @@ def author_create_article():
         request.form['text'],
         db.get_user(session.get('logged_in')))
     article_id = db.get_article_latest().id_
-    return redirect('/article/{}'.format(article_id))
+    return redirect(url_for('article_display', article_id=article_id))
 
 
 @app.errorhandler(404)

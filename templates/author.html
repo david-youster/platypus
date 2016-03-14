@@ -19,7 +19,7 @@
                     <td>{{ article.snippet }}</td>
                     <td>{{ article.publication_date }}</td>
                     <td>Edit</td>
-                    <td>Delete</td>
+                    <td><a href="{{ url_for('article_delete', article_id=article.id_) }}">Delete</a></td>
                 </tr>
             {% endfor %}
         </table>
