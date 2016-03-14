@@ -15,7 +15,7 @@
         <table>
             {% for article in articles %}
                 <tr>
-                    <td><a href="/article/display/{{ article.id_ }}">{{ article.title }}</a></td>
+                    <td><a href="{{ url_for('article_display', article_id=article.id_) }}">{{ article.title }}</a></td>
                     <td>{{ article.snippet }}</td>
                     <td>{{ article.publication_date }}</td>
                     <td>Edit</td>

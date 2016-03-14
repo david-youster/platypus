@@ -23,15 +23,15 @@
                 {% block body %}{% endblock %}
                 <footer>
                     {% if user_has_role('admin') %}
-                        <a href="/admin">Admin</a>
+                        <a href="{{ url_for('admin') }}">Admin</a>
                     {% endif %}
                     {% if user_has_role('author') %}
-                        <a href="/author">Author</a>
+                        <a href="{{ url_for('author') }}">Author</a>
                     {% endif %}
                     {% if user_logged_in() %}
-                        <a href="/logout">Log Out</a>
+                        <a href="{{ url_for('logout') }}">Log Out</a>
                     {% elif title != 'Login' %}
-                        <a href="/login">Log In</a>
+                        <a href="{{ url_for('login') }}">Log In</a>
                     {% endif %}
                 </footer>
             </main>
