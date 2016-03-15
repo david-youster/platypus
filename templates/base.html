@@ -10,18 +10,8 @@
     <body>
         <div id="wrapper">
             <header>
-                <h1>Blog</h1>
+                <h1><a href="{{ url_for('index') }}">Blog</a></h1>
                 <nav>
-                    <a href="/index">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/contact">Contact</a>
-                    <a href="/links">Links</a>
-                </nav>
-            </header>
-            <main>
-                {% if title %}<h2>{{ title }}</h2>{% endif %}
-                {% block body %}{% endblock %}
-                <footer>
                     {% if user_has_role('admin') %}
                         <a href="{{ url_for('admin') }}">Admin</a>
                     {% endif %}
@@ -33,7 +23,11 @@
                     {% elif title != 'Login' %}
                         <a href="{{ url_for('login') }}">Log In</a>
                     {% endif %}
-                </footer>
+                </nav>
+            </header>
+            <main>
+                {% if title %}<h2>{{ title }}</h2>{% endif %}
+                {% block body %}{% endblock %}
             </main>
         </div>
     </body>

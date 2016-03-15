@@ -12,12 +12,15 @@
       border: 1px solid gray;
       box-shadow: 1px 1px 1px black;
       padding-left: 1em;
-      padding-right: 2em; }
+      padding-right: 2em;
+      position: relative; }
       header h1 {
         display: inline-block;
         margin-right: 1em; }
         header nav {
-          display: inline-block; }
+          position: absolute;
+          right: 1em;
+          bottom: 30%; }
 
 main {
   width: 70%;
