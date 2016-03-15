@@ -1,4 +1,4 @@
-from flask import Flask, Markup
+from flask import Flask
 from flask import render_template, request, redirect, session, url_for
 from flask.ext.assets import Bundle, Environment
 from functools import wraps
@@ -163,7 +163,7 @@ def author_create_article():
     db.create_article(
         request.form['title'],
         request.form['snippet'],
-        Markup(markdown(request.form['text'])),
+        markdown(request.form['text']),
         db.get_user(session.get('logged_in')))
     article_id = db.get_article_latest().id_
     return redirect(url_for('article_display', article_id=article_id))

@@ -7,7 +7,7 @@
                 <time>{{ article.publication_date }}</time>
                 <address>{{ article.author.login }}</address>
                 <div>
-                    {{ article.text | safe }}
+                    {{ article.text | safe}}
                 </div>
             {% else %}
                 <p>Article not found.</p>
