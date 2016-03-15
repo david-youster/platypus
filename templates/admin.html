@@ -13,4 +13,14 @@
         <input type="checkbox" name="roles" id="role-admin" value="admin">
         <input type="submit" value="Create User">
     </form>
+
+    <table>
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ url_for('admin_display_user', user_id=user.id_) }}">{{ user.login }}</a></td>
+                <td>{% for role in user.roles %} {{ role.name }} {% endfor %}</td>
+                <td><a href="{{ url_for('admin_delete_user', user_id=user.id_) }}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

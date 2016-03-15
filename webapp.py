@@ -100,7 +100,11 @@ def log_out_user():
 @app.route('/admin')
 @check_admin
 def admin():
-    return render_template('admin.html', title='Admin', roles=db.get_roles())
+    return render_template(
+        'admin.html',
+        title='Admin',
+        roles=db.get_roles(), 
+        users=db.get_users())
 
 
 @app.route('/admin/createuser', methods=['POST'])
@@ -118,6 +122,18 @@ def create_user(login, password, roles):
     password_hash = generate_password_hash(password, salt)
     roles = [db.get_role(role) for role in roles]
     db.create_user(login, password_hash, salt, roles)
+
+
+@app.route('/admin/deleteuser/<user_id>')
+@check_admin
+def admin_delete_user(user_id):
+    return 'Not Implemented'
+
+
+@app.route('/admin/displayuser/<user_id>')
+@check_admin
+def admin_display_user(user_id):
+    return 'Not implemented'
 
 
 @app.route('/author')
