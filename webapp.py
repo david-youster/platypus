@@ -124,15 +124,16 @@ def create_user(login, password, roles):
     db.create_user(login, password_hash, salt, roles)
 
 
-@app.route('/admin/deleteuser/<user_id>')
+@app.route('/admin/deleteuser/<user_login>')
 @check_admin
-def admin_delete_user(user_id):
-    return 'Not Implemented'
+def admin_delete_user(user_login):
+    db.delete_user(user_login)
+    return redirect(url_for('admin'))
 
 
-@app.route('/admin/displayuser/<user_id>')
+@app.route('/admin/displayuser/<user_login>')
 @check_admin
-def admin_display_user(user_id):
+def admin_display_user(user_login):
     return 'Not implemented'
 
 

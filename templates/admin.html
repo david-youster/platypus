@@ -17,9 +17,9 @@
     <table>
         {% for user in users %}
             <tr>
-                <td><a href="{{ url_for('admin_display_user', user_id=user.id_) }}">{{ user.login }}</a></td>
+                <td><a href="{{ url_for('admin_display_user', user_login=user.login) }}">{{ user.login }}</a></td>
                 <td>{% for role in user.roles %} {{ role.name }} {% endfor %}</td>
-                <td><a href="{{ url_for('admin_delete_user', user_id=user.id_) }}">Delete</a></td>
+                <td><a href="{{ url_for('admin_delete_user', user_login=user.login) }}">Delete</a></td>
             </tr>
         {% endfor %}
     </table>
