@@ -1,59 +1,64 @@
-* {
-  font-family: Helvetica, Verdana, Geneva, sans-serif; }
+body {
+  font-family: Helvetica, Verdana, Geneva, sans-serif;
+  background-color: #465B76;
+  padding-left: 2em; }
 
-  body {
-    background-color: #465B76;
-    padding-left: 2em; }
+  header {
+    width: 70%;
+    background-color: #C8D6E9;
+    margin-bottom: 2em;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px black;
+    padding-left: 1em;
+    padding-right: 2em;
+    position: relative; }
 
-    header {
-      width: 70%;
-      background-color: #C8D6E9;
-      margin-bottom: 2em;
-      border: 1px solid gray;
-      box-shadow: 1px 1px 1px black;
-      padding-left: 1em;
-      padding-right: 2em;
-      position: relative; }
-      header h1 {
-        display: inline-block;
-        margin-right: 1em; }
-        header nav {
-          position: absolute;
-          right: 1em;
-          bottom: 30%; }
+    header h1 {
+      display: inline-block;
+      margin-right: 1em; }
 
-main {
-  width: 70%;
-  padding-left: 1em;
-  padding-right: 2em;
-  padding-bottom: 1em;
-  background-color: #E6EFFA;
-  border: 1px solid gray;
-  box-shadow: 1px 1px 1px black; }
-  main h2 {
-    font-size: 80%; }
-    main article {
-      border-bottom: 1px solid #465B76;
+      header nav {
+        position: absolute;
+        right: 1em;
+        bottom: 30%; }
+
+        main {
+          width: 70%;
+          padding-left: 1em;
+          padding-right: 2em;
+          padding-bottom: 1em;
+          background-color: #E6EFFA;
+          border: 1px solid gray;
+          box-shadow: 1px 1px 1px black; }
+
+main h2 {
+  font-size: 80%; }
+
+  article {
+    border-bottom: 1px solid #465B76;
+    background-color: #E6EFFA; }
+
+    article header {
+      border: none;
+      box-shadow: none;
       background-color: #E6EFFA; }
-      main article header {
-        border: none;
-        box-shadow: none;
-        background-color: #E6EFFA; }
-        main article header h1 {
-          display: block; }
-      main article time, main article address {
-        font-size: 70%; }
-        main article p {
-          font-size: 80%;
-          padding-left: 1em; }
 
-footer {
-  margin-top: 1em;
-  font-size: 70%; }
+      article h1 {
+        display: block; }
 
-  table {
-    width: 100%;
-    background-color: #465B76; }
-    table td {
-      padding: 1em;
-      background-color: #C8D6E9; }
+        article time, article address {
+          font-size: 70%; }
+
+          article p {
+            font-size: 80%;
+            padding-left: 1em; }
+
+            footer {
+              margin-top: 1em;
+              font-size: 70%; }
+
+              table {
+                width: 100%;
+                background-color: #465B76; }
+                table td {
+                  background-color: #C8D6E9; }

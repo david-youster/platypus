@@ -1,7 +1,5 @@
 $font-stack: Helvetica, Verdana, Geneva, sans-serif;
 
-
-//http://paletton.com/#uid=13D0u0k6OK62QZk52S+a4u7e9mA
 $color-primary: #E6EFFA;
 $color-secondary: #465B76;
 $color-tertiary: #C8D6E9;
@@ -9,83 +7,82 @@ $color-tertiary: #C8D6E9;
 $main-column-width: 70%;
 
 body {
-    font-family: $font-stack;
-    background-color: $color-secondary;
-    padding-left: 2em;
+  font-family: $font-stack;
+  background-color: $color-secondary;
+  padding-left: 2em;
 }
 
 header {
-    width: $main-column-width;
-    background-color: $color-tertiary;
-    margin-bottom: 2em;
-    border: 1px solid gray;
-    box-shadow: 1px 1px 1px black;
-    padding-left: 1em;
-    padding-right: 2em;
-    position: relative;
+  width: $main-column-width;
+  background-color: $color-tertiary;
+  margin-bottom: 2em;
+  border: 1px solid gray;
+  box-shadow: 1px 1px 1px black;
+  padding-left: 1em;
+  padding-right: 2em;
+  position: relative;
+}
 
-    h1 {
-        display: inline-block;
-        margin-right:1em;
-    }
+header h1 {
+  display: inline-block;
+  margin-right:1em;
+}
 
-    nav {
-        position: absolute;
-        right: 1em;
-        bottom: 30%;
-    }
+header nav {
+  position: absolute;
+  right: 1em;
+  bottom: 30%;
 }
 
 main {
-    width: $main-column-width;
-    padding-left: 1em;
-    padding-right: 2em;
-    padding-bottom:1em;
-    background-color: $color-primary;
-    border: 1px solid gray;
-    box-shadow: 1px 1px 1px black;
+  width: $main-column-width;
+  padding-left: 1em;
+  padding-right: 2em;
+  padding-bottom:1em;
+  background-color: $color-primary;
+  border: 1px solid gray;
+  box-shadow: 1px 1px 1px black;
+}
 
-    h2 {
-        font-size: 80%;
-    }
+main h2 {
+  font-size: 80%;
+}
 
-    article {
-        border-bottom: 1px solid $color-secondary;
-        background-color: $color-primary;
+article {
+  border-bottom: 1px solid $color-secondary;
+  background-color: $color-primary;
+}
 
-        header {
+article header {
+  border: none;
+  box-shadow: none;
+  background-color: $color-primary;
+}
 
-            h1 {
-                display:block;
-            }
+article h1 {
+  display:block;
+}
 
-            border: none;
-            box-shadow: none;
-            background-color: $color-primary;
-        }
+article time, article address {
+  font-size: 70%;
+}   
 
-        time, address {
-            font-size: 70%;
-        }   
-
-        p {
-            font-size: 80%;
-            padding-left: 1em;
-        }
-    }
+article p {
+  font-size: 80%;
+  padding-left: 1em;
 }
 
 footer {
-    margin-top:1em;
-    font-size: 70%;
+  margin-top:1em;
+  font-size: 70%;
 }
 
 table {
-    width: 100%;
-    background-color: $color-secondary;
-
-    td {
-        padding: 0.3em 1em;
-        background-color: $color-tertiary;
-    }
+  width: 100%;
+  background-color: $color-secondary;
 }
+
+td {
+  background-color: $color-tertiary;
+}
+
