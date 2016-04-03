@@ -191,4 +191,4 @@ assets.register('scss_web', scss)
 db.init()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
