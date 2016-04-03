@@ -8,7 +8,6 @@ from util import generate_salt, generate_password_hash, get_theme_file
 import db
 
 app = Flask(__name__)
-app.config['theme'] = 'basic'
 
 
 def check_admin(function):
@@ -207,20 +206,32 @@ def shutdown_session(exception=None):
     db.session.remove()
 
 
-app.secret_key = '9l2+y#cit1)yvm4douh_uv=wh1cm0w3nevpv7v(8$e*qan8n3+'
-app.jinja_env.globals.update(
-    user_has_role=user_has_role,
-    user_logged_in=user_logged_in,
-    get_theme_file=get_theme_file)
-assets = Environment(app)
-assets.url = app.static_url_path
-with app.app_context():
-    scss = Bundle(
-        get_theme_file('sass/web.scss'),
-        filters='pyscss',
-        output=get_theme_file('styles/web.css'))
-    assets.register('scss_web', scss)
-db.init()
+def init():
+    init_app()
+    init_assets()
+    db.init()
+
+
+def init_app():
+    app.config['theme'] = 'basic'
+    app.secret_key = '9l2+y#cit1)yvm4douh_uv=wh1cm0w3nevpv7v(8$e*qan8n3+'
+    app.jinja_env.globals.update(
+        user_has_role=user_has_role,
+        user_logged_in=user_logged_in,
+        get_theme_file=get_theme_file) 
+
+
+def init_assets():
+    assets = Environment(app)
+    assets.url = app.static_url_path
+    with app.app_context():
+        scss = Bundle(
+            get_theme_file('sass/web.scss'),
+            filters='pyscss',
+            output=get_theme_file('styles/web.css'))
+        assets.register('scss_web', scss)
+
 
 if __name__ == '__main__':
+    init()
     app.run(debug=True, host='0.0.0.0')
