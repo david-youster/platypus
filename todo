@@ -1,4 +1,0 @@
-Tidy up URLs.
-Content should have /[content]/[action]/[id] format URLs.
-Deletion should be done by posting IDs, not passing ID in URl.
-
