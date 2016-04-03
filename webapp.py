@@ -4,11 +4,11 @@ from flask.ext.assets import Bundle, Environment
 from functools import wraps
 from markdown import markdown
 from bleach import clean
-from util import generate_salt, generate_password_hash
+from util import generate_salt, generate_password_hash, get_theme_file
 import db
 
 app = Flask(__name__)
-
+theme = 'basic'
 
 def check_admin(function):
     @wraps(function)
@@ -50,7 +50,7 @@ def user_has_role(role_name):
 @app.route('/index')
 def index():
     return render_template(
-        'index.html',
+        get_theme_file(theme, 'index.html'),
         title='Home',
         articles=db.get_articles())
 
@@ -64,7 +64,7 @@ def login():
 
 
 def login_get():
-    return render_template('login.html', title='Login')
+    return render_template(get_theme_file('login.html'), title='Login')
 
 
 def login_post():
@@ -142,7 +142,7 @@ def admin_display_user(user_login):
 @check_author
 def author():
     return render_template(
-        'author.html',
+        get_theme_file(theme, 'author.html'),
         title='Author',
         articles=db.get_articles_by_author(session.get('logged_in')))
 
@@ -151,7 +151,9 @@ def author():
 def article_display(article_id):
     article = db.get_article(article_id)
     article.text = markdown(article.text)
-    return render_template('article.html', article=article)
+    return render_template(
+        get_theme_file(theme, 'article.html'),
+        article=article)
 
 
 @app.route('/article/delete/<article_id>')
@@ -169,7 +171,9 @@ def article_edit(article_id):
 
 def article_edit_get(article_id):
     article = db.get_article(article_id)
-    return render_template('editarticle.html', article=article)
+    return render_template(
+        get_theme_file(theme, 'editarticle.html'),
+        article=article)
 
 
 def article_edit_post(article_id):
@@ -195,7 +199,10 @@ def author_create_article():
 
 @app.errorhandler(404)
 def not_found(error):
-    return render_template('error.html', title='Error', error=str(error))
+    return render_template(
+        get_theme_file(theme, 'error.html'), 
+        title='Error', 
+        error=str(error))
 
 
 @app.teardown_appcontext
@@ -206,10 +213,14 @@ def shutdown_session(exception=None):
 app.secret_key = '9l2+y#cit1)yvm4douh_uv=wh1cm0w3nevpv7v(8$e*qan8n3+'
 app.jinja_env.globals.update(
     user_has_role=user_has_role,
-    user_logged_in=user_logged_in)
+    user_logged_in=user_logged_in,
+    get_theme_file=get_theme_file)
 assets = Environment(app)
 assets.url = app.static_url_path
-scss = Bundle('scss/web.scss', filters='pyscss', output='styles/web.css')
+scss = Bundle(
+    get_theme_file(theme, 'scss/web.scss'),
+    filters='pyscss',
+    output=get_theme_file(theme, 'styles/web.css'))
 assets.register('scss_web', scss)
 db.init()
 

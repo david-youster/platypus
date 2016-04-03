@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <form method="post" action="{{ url_for('author_create_article') }}">
+    <label for="title">Article Title</label>
+    <input type="text" id="title" name="title" required><br>
+    <label for="snippet">Snippet</label>
+    <input type="text" id="snippet" name="snippet" required><br>
+    <label for="text">Text</label>
+    <textarea id="text" name="text" required></textarea><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <div>
+    <table>
+      {% for article in articles %}
+        <tr>
+          <td><a href="{{ url_for('article_display', article_id=article.id_) }}">{{ article.title }}</a></td>
+          <td>{{ article.snippet }}</td>
+          <td>{{ article.publication_date }}</td>
+          <td><a href="{{ url_for('article_edit', article_id=article.id_) }}">Edit</a></td>
+          <td><a href="{{ url_for('article_delete', article_id=article.id_) }}">Delete</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

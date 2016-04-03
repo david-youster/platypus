@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <article>
+    {% if article %}
+      <h1>{{ article.title }}</h1>
+      <time>{{ article.publication_date }}</time>
+      <address>{{ article.author.login }}</address>
+      <div>
+          {{ article.text | safe}}
+      </div>
+    {% else %}
+      <p>Article not found.</p>
+    {% endif %}
+  </article>
+{% endblock %}
