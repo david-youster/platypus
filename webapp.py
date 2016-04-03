@@ -3,6 +3,7 @@ from flask import render_template, request, redirect, session, url_for
 from flask.ext.assets import Bundle, Environment
 from functools import wraps
 from markdown import markdown
+from bleach import clean
 from util import generate_salt, generate_password_hash
 import db
 
@@ -149,6 +150,7 @@ def author():
 @app.route('/article/display/<article_id>')
 def article_display(article_id):
     article = db.get_article(article_id)
+    article.text = markdown(article.text)
     return render_template('article.html', article=article)
 
 
@@ -175,7 +177,7 @@ def article_edit_post(article_id):
         article_id, 
         request.form['title'], 
         request.form['snippet'],
-        request.form['text'])
+        clean(request.form['text']))
     return redirect(url_for('article_display', article_id=article_id))
 
 
@@ -185,7 +187,7 @@ def author_create_article():
     db.create_article(
         request.form['title'],
         request.form['snippet'],
-        markdown(request.form['text']),
+        clean(request.form['text']),
         db.get_user(session.get('logged_in')))
     article_id = db.get_article_latest().id_
     return redirect(url_for('article_display', article_id=article_id))
