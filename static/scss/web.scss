@@ -8,11 +8,8 @@ $color-tertiary: #C8D6E9;
 
 $main-column-width: 70%;
 
-* {
-    font-family: $font-stack;
-}
-
 body {
+    font-family: $font-stack;
     background-color: $color-secondary;
     padding-left: 2em;
 }
