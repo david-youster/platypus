@@ -158,6 +158,27 @@ def article_delete(article_id):
     return redirect(url_for('author'))
 
 
+@app.route('/article/edit/<article_id>', methods=['GET', 'POST'])
+def article_edit(article_id):
+    if request.method == 'GET':
+        return article_edit_get(article_id)
+    return article_edit_post(article_id)
+
+
+def article_edit_get(article_id):
+    article = db.get_article(article_id)
+    return render_template('editarticle.html', article=article)
+
+
+def article_edit_post(article_id):
+    db.update_article(
+        article_id, 
+        request.form['title'], 
+        request.form['snippet'],
+        request.form['text'])
+    return redirect(url_for('article_display', article_id=article_id))
+
+
 @app.route('/author/createarticle', methods=['POST'])
 @check_author
 def author_create_article():

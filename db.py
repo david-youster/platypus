@@ -90,6 +90,12 @@ def get_article_latest():
     return session.query(Article).order_by(Article.id_.desc()).first()
 
 
+def update_article(article_id, title, snippet, text):
+    article = get_article(article_id)
+    article.title, article.snippet, article.text = title, snippet, text
+    session.commit()
+
+
 def delete_user(login):
     session.query(User).filter(User.login == login).delete(
         synchronize_session='evaluate')
