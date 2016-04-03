@@ -1,3 +1,4 @@
+from flask import current_app
 import uuid
 import hashlib
 import os
@@ -13,5 +14,5 @@ def generate_password_hash(password, salt):
     return hashlib.sha512(salted_password).hexdigest()
 
 
-def get_theme_file(theme, file):
-    return os.path.join(theme, file)
+def get_theme_file(file):
+    return os.path.join(current_app.config['theme'], file)
