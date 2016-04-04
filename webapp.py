@@ -102,7 +102,7 @@ def log_out_user():
 @check_admin
 def admin():
     return render_template(
-        'admin.html',
+        get_theme_file('admin.html'),
         title='Admin',
         roles=db.get_roles(), 
         users=db.get_users())
