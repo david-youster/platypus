@@ -169,6 +169,8 @@ def article_edit(article_id):
 
 def article_edit_get(article_id):
     article = db.get_article(article_id)
+    if article.author.login != session.get('logged_in', None):
+        return redirect(url_for('index'))
     return render_template(
         get_theme_file('editarticle.html'),
         article=article,
