@@ -169,7 +169,10 @@ def article_edit(article_id):
 
 def article_edit_get(article_id):
     article = db.get_article(article_id)
-    return render_template(get_theme_file('editarticle.html'), article=article)
+    return render_template(
+        get_theme_file('editarticle.html'),
+        article=article,
+        title='Edit Article')
 
 
 def article_edit_post(article_id):
