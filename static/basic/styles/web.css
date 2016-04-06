@@ -77,9 +77,16 @@ body {
                                   text-align: right;
                                   vertical-align: top; }
 
-                                  form#new-article input[type=text] {
-                                    width: 80%; }
+                                  form .form-block {
+                                    margin-top: 0.5em;
+                                    margin-bottom: 0.5em; }
 
-                                    form#new-article textarea {
-                                      width: 80%;
-                                      height: 20em; }
+                                    form#new-user input[type=text], form#new-user input[type=password] {
+                                      width: 25%; }
+
+                                      form#new-article input[type=text] {
+                                        width: 80%; }
+
+                                        form#new-article textarea {
+                                          width: 80%;
+                                          height: 20em; }
