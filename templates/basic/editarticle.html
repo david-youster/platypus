@@ -1,13 +1,21 @@
 {% extends get_theme_file('base.html') %}
 
 {% block body %}
-  <form method="post" action="{{ url_for('article_edit', article_id=article.id_) }}">
-    <label for="title">Title</label>
-    <input type="text" id="title" name="title" value="{{ article.title }}" required><br>
-    <label for="snippet">Snippet</label>
-    <input type="text" id="snippet" name="snippet" value="article.snippet" required><br>
-    <label for="text">Text</label>
-    <textarea id="text" name="text" required>{{ article.text }}</textarea><br>
-    <input type="submit" value="Submit">
+  <form id="edit-article" method="post" action="{{ url_for('article_edit', article_id=article.id_) }}">
+    <div class="form-block">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="{{ article.title }}" required>
+    </div>
+    <div class="form-block">
+      <label for="snippet">Snippet</label>
+      <input type="text" id="snippet" name="snippet" value="article.snippet" required>
+    </div>
+    <div class="form-block">
+      <label for="text">Text</label>
+      <textarea id="text" name="text" required>{{ article.text }}</textarea>
+    </div>
+    <div class="form-block">
+      <input type="submit" value="Submit Changes">
+    </div>
   </form>
 {% endblock %}
