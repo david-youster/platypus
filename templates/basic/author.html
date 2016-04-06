@@ -4,14 +4,22 @@
   <form id="new-article" method="post" action="{{ url_for('author_create_article') }}">
     <fieldset>
       <legend>New Article</legend>
-      <label for="title">Article Title</label>
-      <input type="text" id="title" name="title" required><br>
-      <label for="snippet">Snippet</label>
-      <input type="text" id="snippet" name="snippet" required><br>
-      <label for="text">Text</label>
-      <textarea id="text" name="text" required></textarea><br>
+      <div class="form-block">
+        <label for="title">Article Title</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div class="form-block">
+        <label for="snippet">Snippet</label>
+        <input type="text" id="snippet" name="snippet" required>
+      </div>
+      <div class="form-block">
+        <label for="text">Text</label>
+        <textarea id="text" name="text" required></textarea>
+      </div>
     </fieldset>
-    <input type="submit" value="Submit">
+    <div class="form-block">
+      <input type="submit" value="Submit">
+    </div>
   </form>
 
   <div>
