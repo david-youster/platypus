@@ -112,11 +112,11 @@ form#new-user input[type=text], form#new-user input[type=password] {
 }
 
 
-form#new-article input[type=text] {
+form#new-article input[type=text], form#edit-article[type=text] {
   width:80%
 }
 
-form#new-article textarea {
+form#new-article textarea, form#edit-article textarea {
   width:80%;
   height:20em;
 }
