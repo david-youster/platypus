@@ -63,3 +63,23 @@ body {
 
                           td {
                             background-color: #C8D6E9; }
+
+                            fieldset {
+                              border: 1px solid lightgrey; }
+
+                              legend {
+                                font-size: 0.8em;
+                                color: gray; }
+
+                                form#new-article label {
+                                  display: inline-block;
+                                  width: 5em;
+                                  text-align: right;
+                                  vertical-align: top; }
+
+                                  form#new-article input[type=text] {
+                                    width: 80%; }
+
+                                    form#new-article textarea {
+                                      width: 80%;
+                                      height: 20em; }
