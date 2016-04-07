@@ -104,7 +104,7 @@ def admin():
     return render_template(
         get_theme_file('admin.html'),
         title='Admin',
-        roles=db.get_roles(), 
+        roles=db.get_roles(),
         users=db.get_users())
 
 
@@ -169,7 +169,8 @@ def article_edit(article_id):
 
 def article_edit_get(article_id):
     article = db.get_article(article_id)
-    if article.author.login != session.get('logged_in', None):
+    if (article and not user_has_role('editor') and
+            article.author.login != session.get('logged_in', None)):
         return redirect(url_for('index'))
     return render_template(
         get_theme_file('editarticle.html'),
@@ -179,8 +180,8 @@ def article_edit_get(article_id):
 
 def article_edit_post(article_id):
     db.update_article(
-        article_id, 
-        request.form['title'], 
+        article_id,
+        request.form['title'],
         request.form['snippet'],
         clean(request.form['text']))
     return redirect(url_for('article_display', article_id=article_id))
@@ -223,7 +224,7 @@ def init_app():
     app.jinja_env.globals.update(
         user_has_role=user_has_role,
         user_logged_in=user_logged_in,
-        get_theme_file=get_theme_file) 
+        get_theme_file=get_theme_file)
 
 
 def init_assets():
