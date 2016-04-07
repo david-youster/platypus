@@ -16,7 +16,7 @@
         <label for="roles">Roles</label>
         {% for role in roles %}
           <label for="role-{{ role.name }}" class="checkbox-label">{{ role.name | title }}</label>
-          <input type="checkbox" name="roles"  id="role-{{ role.name }}" value="{{ role.name }}">
+          <input type="checkbox" name="roles"  id="role-{{ role.name }}" value="{{ role.name }}" {% if role.name == 'author' %} checked {% endif %}>
         {% endfor %}
       </div>
     </fieldset>
