@@ -107,6 +107,10 @@ form .form-block {
   margin-bottom: 0.5em;
 }
 
+form#login-form label {
+  width:7em;
+}
+
 form#new-user input[type=text], form#new-user input[type=password] {
   width:25%
 }
