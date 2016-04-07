@@ -14,10 +14,10 @@
       </div>
       <div class="form-block">
         <label for="roles">Roles</label>
-        <label for="role-author" class="checkbox-label">Author</label>
-        <input type="checkbox" name="roles"  id="role-author" value="author" checked>
-        <label for="role-admin" class="checkbox-label">Admin</label>
-        <input type="checkbox" name="roles" id="role-admin" value="admin">
+        {% for role in roles %}
+          <label for="role-{{ role.name }}" class="checkbox-label">{{ role.name | title }}</label>
+          <input type="checkbox" name="roles"  id="role-{{ role.name }}" value="{{ role.name }}">
+        {% endfor %}
       </div>
     </fieldset>
     <div class="form-block">
