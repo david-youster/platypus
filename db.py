@@ -27,6 +27,7 @@ def init():
 def init_role_table():
     create_role('admin')
     create_role('author')
+    create_role('editor')
 
 
 def init_user_table():
