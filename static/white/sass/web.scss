@@ -1,4 +1,5 @@
-$font-stack-serif: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+$font-stack-body: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+$font-stack-heading: Lora, Georgia, Times, "Times New Roman", serif;
 
 $color-primary: white;
 $color-secondary: white;
@@ -12,9 +13,13 @@ html, body {
 }
 
 body {
-  font-family: $font-stack-serif;
+  font-family: $font-stack-body;
   background-color: $color-secondary;
   width:90%;
+}
+
+h1 {
+  font-family: $font-stack-heading;
 }
 
 a {

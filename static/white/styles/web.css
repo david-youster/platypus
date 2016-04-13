@@ -7,108 +7,111 @@ html, body {
     background-color: white;
     width: 90%; }
 
-    a {
-      color: black;
-      text-decoration: none; }
+    h1 {
+      font-family: Lora, Georgia, Times, "Times New Roman", serif; }
 
-      a:hover {
-        text-decoration: underline; }
+      a {
+        color: black;
+        text-decoration: none; }
 
-        .link-placeholder {
-          color: grey; }
+        a:hover {
+          text-decoration: underline; }
 
-          nav a {
-            margin-left: 0.5em; }
+          .link-placeholder {
+            color: grey; }
 
-            body > header {
-              padding-left: 1em; }
+            nav a {
+              margin-left: 0.5em; }
 
-              header {
-                width: 100%;
-                background-color: white;
-                padding-top: 1em;
-                padding-bottom: 1em;
-                margin-bottom: 2em;
-                border-bottom: 1px solid gray;
-                position: relative; }
+              body > header {
+                padding-left: 1em; }
 
-                main {
-                  padding-left: 5em;
-                  padding-right: 2em;
+                header {
+                  width: 100%;
+                  background-color: white;
+                  padding-top: 1em;
                   padding-bottom: 1em;
-                  background-color: white; }
+                  margin-bottom: 2em;
+                  border-bottom: 1px solid gray;
+                  position: relative; }
 
-                  main h2 {
-                    font-size: 80%; }
+                  main {
+                    padding-left: 5em;
+                    padding-right: 2em;
+                    padding-bottom: 1em;
+                    background-color: white; }
 
-                    article {
-                      border-bottom: 1px solid gray;
-                      width: 61.8034%;
-                      padding-left: 1em; }
+                    main h2 {
+                      font-size: 80%; }
 
-                      article header {
-                        border: none;
-                        box-shadow: none;
-                        background-color: white; }
+                      article {
+                        border-bottom: 1px solid gray;
+                        width: 61.8034%;
+                        padding-left: 1em; }
 
-                        article header h1 {
-                          display: block;
-                          font-size: 3em; }
+                        article header {
+                          border: none;
+                          box-shadow: none;
+                          background-color: white; }
 
-                          article header time, article header address {
-                            margin: 1em;
-                            display: inline;
-                            font-size: 70%; }
+                          article header h1 {
+                            display: block;
+                            font-size: 3em; }
 
-                            article p {
-                              font-size: 1.3em;
-                              padding-right: 2em;
-                              line-height: 1.7em;
-                              margin-bottom: 1.2em; }
+                            article header time, article header address {
+                              margin: 1em;
+                              display: inline;
+                              font-size: 70%; }
 
-                              article p:first-child {
-                                margin-top: 2em; }
+                              article p {
+                                font-size: 1.3em;
+                                padding-right: 2em;
+                                line-height: 1.7em;
+                                margin-bottom: 1.2em; }
 
-                                footer {
-                                  margin-top: 1em;
-                                  font-size: 70%; }
+                                article p:first-child {
+                                  margin-top: 2em; }
 
-                                  table {
-                                    width: 100%;
-                                    background-color: white; }
+                                  footer {
+                                    margin-top: 1em;
+                                    font-size: 70%; }
 
-                                    td {
+                                    table {
+                                      width: 100%;
                                       background-color: white; }
 
-                                      fieldset {
-                                        border: 1px solid lightgrey; }
+                                      td {
+                                        background-color: white; }
 
-                                        legend {
-                                          font-size: 0.8em;
-                                          color: gray; }
+                                        fieldset {
+                                          border: 1px solid lightgrey; }
 
-                                          form label {
-                                            display: inline-block;
-                                            width: 6em;
-                                            text-align: right;
-                                            vertical-align: top; }
+                                          legend {
+                                            font-size: 0.8em;
+                                            color: gray; }
 
-                                            form .form-block {
-                                              margin-top: 0.5em;
-                                              margin-bottom: 0.5em; }
+                                            form label {
+                                              display: inline-block;
+                                              width: 6em;
+                                              text-align: right;
+                                              vertical-align: top; }
 
-                                              form#login-form label {
-                                                width: 7em; }
+                                              form .form-block {
+                                                margin-top: 0.5em;
+                                                margin-bottom: 0.5em; }
 
-                                                form#new-user input[type=text], form#new-user input[type=password] {
-                                                  width: 25%; }
+                                                form#login-form label {
+                                                  width: 7em; }
 
-                                                  form#new-article input[type=text], form#edit-article input[type=text] {
-                                                    width: 90%; }
+                                                  form#new-user input[type=text], form#new-user input[type=password] {
+                                                    width: 25%; }
 
-                                                    form#new-article textarea, form#edit-article textarea {
-                                                      width: 90%;
-                                                      height: 30em; }
+                                                    form#new-article input[type=text], form#edit-article input[type=text] {
+                                                      width: 90%; }
 
-                                                      footer {
-                                                        text-align: right; }
+                                                      form#new-article textarea, form#edit-article textarea {
+                                                        width: 90%;
+                                                        height: 30em; }
+
+                                                        footer {
+                                                          text-align: right; }
