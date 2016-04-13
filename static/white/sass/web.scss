@@ -29,6 +29,10 @@ nav a {
   margin-left: 0.5em;
 }
 
+body>header {
+  padding-left: 1em;
+}
+
 header {
   width: 100%;
   background-color: $color-tertiary;
