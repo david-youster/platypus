@@ -4,11 +4,17 @@
   <form id="login-form" method="post" action="/login">
     <fieldset>
       <legend>User Login</legend>
-      <label for="login-name">Login name</label>
-      <input type="text" id="login-name" name="login-name" required>
-      <label for="login-password">Password</label>
-      <input type="password" id="login-password" name="login-password" required>
-      <input type="submit" value="Login">
+      <div class="form-block">
+        <label for="login-name">Login name</label>
+        <input type="text" id="login-name" name="login-name" required>
+      </div>
+      <div class="form-block">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="login-password" required>
+      </div>
+      <div class="form-block">
+        <input type="submit" value="Login">
+      <div class="form-block">
     </fieldset>
   </form>
 {% endblock %}
