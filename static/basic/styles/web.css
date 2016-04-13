@@ -4,7 +4,8 @@ body {
   padding-left: 2em; }
 
   a {
-    text-decoration: none; }
+    text-decoration: none;
+    margin-left: 0.5em; }
 
     header {
       width: 70%;
