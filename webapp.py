@@ -37,6 +37,10 @@ def check_anon(function):
     return wrapped_function
 
 
+def user_login():
+    return session.get('logged_in', None)
+
+
 def user_logged_in():
     return 'logged_in' in session.keys()
 
@@ -222,6 +226,7 @@ def init_app():
     app.config['theme'] = 'basic'
     app.secret_key = '9l2+y#cit1)yvm4douh_uv=wh1cm0w3nevpv7v(8$e*qan8n3+'
     app.jinja_env.globals.update(
+        user_login=user_login,
         user_has_role=user_has_role,
         user_logged_in=user_logged_in,
         get_theme_file=get_theme_file)
