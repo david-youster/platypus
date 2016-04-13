@@ -37,7 +37,7 @@ a:hover {
 }
 
 nav a {
-  margin-left: 0.5em;
+  margin-left: 1em;
 }
 
 body>header {
@@ -145,4 +145,7 @@ form#new-article textarea, form#edit-article textarea {
 
 footer {
   text-align: right;
+  font-size: 1em;
+  padding-top: 2em;
+  padding-bottom: 1em;
 }
