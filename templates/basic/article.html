@@ -9,10 +9,8 @@
         <address>{{ article.author.login }}</address>
         {% if user_logged_in() and ((user_login() == article.author.login) or user_has_role('editor')) %}
           <nav>
-            <ul>
-              <li><a href="{{ url_for('article_edit', article_id=article.id_) }}">Edit</a></li>
-              <li><a href="{{ url_for('article_delete', article_id=article.id_) }}">Delete</a></li>
-            </ul>
+            <a href="{{ url_for('article_edit', article_id=article.id_) }}">Edit</a>
+            <a href="{{ url_for('article_delete', article_id=article.id_) }}">Delete</a>
           </nav>
         {% endif %}
       </header>

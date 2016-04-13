@@ -12,6 +12,10 @@ body {
   padding-left: 2em;
 }
 
+a {
+  text-decoration: none;
+}
+
 header {
   width: $main-column-width;
   background-color: $color-tertiary;
@@ -65,7 +69,7 @@ article h1 {
 
 article time, article address {
   font-size: 70%;
-}   
+}
 
 article p {
   font-size: 80%;

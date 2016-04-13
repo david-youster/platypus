@@ -3,93 +3,96 @@ body {
   background-color: #465B76;
   padding-left: 2em; }
 
-  header {
-    width: 70%;
-    background-color: #C8D6E9;
-    margin-bottom: 2em;
-    border: 1px solid gray;
-    box-shadow: 1px 1px 1px black;
-    padding-left: 1em;
-    padding-right: 2em;
-    position: relative; }
+  a {
+    text-decoration: none; }
 
-    header h1 {
-      display: inline-block;
-      margin-right: 1em; }
+    header {
+      width: 70%;
+      background-color: #C8D6E9;
+      margin-bottom: 2em;
+      border: 1px solid gray;
+      box-shadow: 1px 1px 1px black;
+      padding-left: 1em;
+      padding-right: 2em;
+      position: relative; }
 
-      header nav {
-        position: absolute;
-        right: 1em;
-        bottom: 30%; }
+      header h1 {
+        display: inline-block;
+        margin-right: 1em; }
 
-        main {
-          width: 70%;
-          padding-left: 1em;
-          padding-right: 2em;
-          padding-bottom: 1em;
-          background-color: #E6EFFA;
-          border: 1px solid gray;
-          box-shadow: 1px 1px 1px black; }
+        header nav {
+          position: absolute;
+          right: 1em;
+          bottom: 30%; }
 
-          main h2 {
-            font-size: 80%; }
+          main {
+            width: 70%;
+            padding-left: 1em;
+            padding-right: 2em;
+            padding-bottom: 1em;
+            background-color: #E6EFFA;
+            border: 1px solid gray;
+            box-shadow: 1px 1px 1px black; }
 
-            article {
-              border-bottom: 1px solid #465B76;
-              background-color: #E6EFFA; }
+            main h2 {
+              font-size: 80%; }
 
-              article header {
-                border: none;
-                box-shadow: none;
+              article {
+                border-bottom: 1px solid #465B76;
                 background-color: #E6EFFA; }
 
-                article h1 {
-                  display: block; }
+                article header {
+                  border: none;
+                  box-shadow: none;
+                  background-color: #E6EFFA; }
 
-                  article time, article address {
-                    font-size: 70%; }
+                  article h1 {
+                    display: block; }
 
-                    article p {
-                      font-size: 80%;
-                      padding-left: 1em; }
+                    article time, article address {
+                      font-size: 70%; }
 
-                      footer {
-                        margin-top: 1em;
-                        font-size: 70%; }
+                      article p {
+                        font-size: 80%;
+                        padding-left: 1em; }
 
-                        table {
-                          width: 100%;
-                          background-color: #465B76; }
+                        footer {
+                          margin-top: 1em;
+                          font-size: 70%; }
 
-                          td {
-                            background-color: #C8D6E9; }
+                          table {
+                            width: 100%;
+                            background-color: #465B76; }
 
-                            fieldset {
-                              border: 1px solid lightgrey; }
+                            td {
+                              background-color: #C8D6E9; }
 
-                              legend {
-                                font-size: 0.8em;
-                                color: gray; }
+                              fieldset {
+                                border: 1px solid lightgrey; }
 
-                                form label {
-                                  display: inline-block;
-                                  width: 5em;
-                                  text-align: right;
-                                  vertical-align: top; }
+                                legend {
+                                  font-size: 0.8em;
+                                  color: gray; }
 
-                                  form .form-block {
-                                    margin-top: 0.5em;
-                                    margin-bottom: 0.5em; }
+                                  form label {
+                                    display: inline-block;
+                                    width: 5em;
+                                    text-align: right;
+                                    vertical-align: top; }
 
-                                    form#login-form label {
-                                      width: 7em; }
+                                    form .form-block {
+                                      margin-top: 0.5em;
+                                      margin-bottom: 0.5em; }
 
-                                      form#new-user input[type=text], form#new-user input[type=password] {
-                                        width: 25%; }
+                                      form#login-form label {
+                                        width: 7em; }
 
-                                        form#new-article input[type=text], form#edit-article input[type=text] {
-                                          width: 80%; }
+                                        form#new-user input[type=text], form#new-user input[type=password] {
+                                          width: 25%; }
 
-                                          form#new-article textarea, form#edit-article textarea {
-                                            width: 80%;
-                                            height: 20em; }
+                                          form#new-article input[type=text], form#edit-article input[type=text] {
+                                            width: 80%; }
+
+                                            form#new-article textarea, form#edit-article textarea {
+                                              width: 80%;
+                                              height: 20em; }
