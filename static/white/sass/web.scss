@@ -5,7 +5,7 @@ $color-primary: #FAFAFA;
 $color-secondary: #EEE;
 $font-color: #2A2A2A;
 
-$article-width: 61.8034%;
+$article-width: 70%;
 
 html, body {
   height: 100%;
@@ -63,6 +63,7 @@ main h2 {
 }
 
 article {
+  margin: 0 auto;
   border-bottom: 1px solid gray;
   width: $article-width;
   padding-left: 1em;

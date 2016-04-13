@@ -43,8 +43,9 @@ html, body {
                       font-size: 80%; }
 
                       article {
+                        margin: 0 auto;
                         border-bottom: 1px solid gray;
-                        width: 61.8034%;
+                        width: 70%;
                         padding-left: 1em; }
 
                         article header {
