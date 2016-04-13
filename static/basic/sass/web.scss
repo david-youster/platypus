@@ -73,8 +73,15 @@ article time, article address {
 }
 
 article p {
-  font-size: 80%;
-  padding-left: 1em;
+  font-size: 1.3em;
+  padding-left: 2em;
+  padding-right: 2em;
+  line-height: 1.7em;
+  margin-bottom: 1.2em;
+}
+
+article p:first-child {
+  margin-top:2em;
 }
 
 footer {

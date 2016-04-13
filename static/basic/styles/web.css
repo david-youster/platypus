@@ -54,46 +54,52 @@ body {
                       font-size: 70%; }
 
                       article p {
-                        font-size: 80%;
-                        padding-left: 1em; }
+                        font-size: 1.3em;
+                        padding-left: 2em;
+                        padding-right: 2em;
+                        line-height: 1.7em;
+                        margin-bottom: 1.2em; }
 
-                        footer {
-                          margin-top: 1em;
-                          font-size: 70%; }
+                        article p:first-child {
+                          margin-top: 2em; }
 
-                          table {
-                            width: 100%;
-                            background-color: #465B76; }
+                          footer {
+                            margin-top: 1em;
+                            font-size: 70%; }
 
-                            td {
-                              background-color: #C8D6E9; }
+                            table {
+                              width: 100%;
+                              background-color: #465B76; }
 
-                              fieldset {
-                                border: 1px solid lightgrey; }
+                              td {
+                                background-color: #C8D6E9; }
 
-                                legend {
-                                  font-size: 0.8em;
-                                  color: gray; }
+                                fieldset {
+                                  border: 1px solid lightgrey; }
 
-                                  form label {
-                                    display: inline-block;
-                                    width: 5em;
-                                    text-align: right;
-                                    vertical-align: top; }
+                                  legend {
+                                    font-size: 0.8em;
+                                    color: gray; }
 
-                                    form .form-block {
-                                      margin-top: 0.5em;
-                                      margin-bottom: 0.5em; }
+                                    form label {
+                                      display: inline-block;
+                                      width: 5em;
+                                      text-align: right;
+                                      vertical-align: top; }
 
-                                      form#login-form label {
-                                        width: 7em; }
+                                      form .form-block {
+                                        margin-top: 0.5em;
+                                        margin-bottom: 0.5em; }
 
-                                        form#new-user input[type=text], form#new-user input[type=password] {
-                                          width: 25%; }
+                                        form#login-form label {
+                                          width: 7em; }
 
-                                          form#new-article input[type=text], form#edit-article input[type=text] {
-                                            width: 80%; }
+                                          form#new-user input[type=text], form#new-user input[type=password] {
+                                            width: 25%; }
 
-                                            form#new-article textarea, form#edit-article textarea {
-                                              width: 80%;
-                                              height: 20em; }
+                                            form#new-article input[type=text], form#edit-article input[type=text] {
+                                              width: 80%; }
+
+                                              form#new-article textarea, form#edit-article textarea {
+                                                width: 80%;
+                                                height: 20em; }
