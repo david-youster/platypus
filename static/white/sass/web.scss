@@ -116,8 +116,8 @@ legend {
 
 form label {
   display: inline-block;
-  width:6em;
-  text-align:right;
+  width: 6em;
+  text-align: right;
   vertical-align: top
 }
 
@@ -134,13 +134,12 @@ form#new-user input[type=text], form#new-user input[type=password] {
   width:25%
 }
 
-
 form#new-article input[type=text], form#edit-article input[type=text] {
-  width: 90%;
+  width: 80%;
 }
 
 form#new-article textarea, form#edit-article textarea {
-  width:90%;
+  width:80%;
   height:30em;
 }
 
