@@ -5,14 +5,14 @@ html, body {
   body {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     width: 90%;
-    color: #222;
+    color: #2A2A2A;
     background-color: #FAFAFA; }
 
     h1 {
       font-family: Lora, Georgia, Times, "Times New Roman", serif; }
 
       a {
-        color: #222;
+        color: #2A2A2A;
         text-decoration: none; }
 
         a:hover {
@@ -22,7 +22,7 @@ html, body {
             color: grey; }
 
             nav a {
-              margin-left: 0.5em; }
+              margin-left: 1em; }
 
               body > header {
                 padding-left: 5em;
@@ -107,4 +107,7 @@ html, body {
                                                       height: 30em; }
 
                                                       footer {
-                                                        text-align: right; }
+                                                        text-align: right;
+                                                        font-size: 1em;
+                                                        padding-top: 2em;
+                                                        padding-bottom: 1em; }
