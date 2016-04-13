@@ -8,9 +8,7 @@
         <time>{{ article.publication_date }}</time>
         <address>{{ article.author.login }}</address>
       </header>
-      <div>
-          {{ article.text | safe}}
-      </div>
+      {{ article.text | safe}}
       <footer>
         {% if user_logged_in() and ((user_login() == article.author.login) or user_has_role('editor')) %}
           <nav>

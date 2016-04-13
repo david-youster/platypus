@@ -9,28 +9,26 @@
     {% endassets %}
   </head>
   <body>
-    <div id="wrapper">
-      <header>
-        <h1><a href="{{ url_for('index') }}">Blog</a></h1>
-      </header>
-      <main>
-        {% block body %}{% endblock %}
-      </main>
-      <footer>
-        <nav>
-          {% if user_has_role('admin') %}
-            <a href="{{ url_for('admin') }}">Admin</a>
-          {% endif %}
-          {% if user_has_role('author') %}
-            <a href="{{ url_for('author') }}">Author</a>
-          {% endif %}
-          {% if user_logged_in() %}
-            <a href="{{ url_for('logout') }}">Log Out</a>
-          {% elif title != 'Login' %}
-            <a href="{{ url_for('login') }}">Log In</a>
-          {% endif %}
-        </nav>
-      </footer>
-    </div>
+    <header>
+      <h1><a href="{{ url_for('index') }}">Blog</a></h1>
+    </header>
+    <main>
+      {% block body %}{% endblock %}
+    </main>
+    <footer>
+      <nav>
+        {% if user_has_role('admin') %}
+          <a href="{{ url_for('admin') }}">Admin</a>
+        {% endif %}
+        {% if user_has_role('author') %}
+          <a href="{{ url_for('author') }}">Author</a>
+        {% endif %}
+        {% if user_logged_in() %}
+          <a href="{{ url_for('logout') }}">Log Out</a>
+        {% elif title != 'Login' %}
+          <a href="{{ url_for('login') }}">Log In</a>
+        {% endif %}
+      </nav>
+    </footer>
   </body>
 </html>
