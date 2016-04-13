@@ -48,7 +48,8 @@ body {
                   background-color: #E6EFFA; }
 
                   article h1 {
-                    display: block; }
+                    display: block;
+                    font-size: 1.8em; }
 
                     article time, article address {
                       font-size: 70%; }
