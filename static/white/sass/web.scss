@@ -6,6 +6,11 @@ $color-tertiary: white;
 
 $article-width: 61.8034%;
 
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
 body {
   font-family: $font-stack-serif;
   background-color: $color-secondary;
@@ -32,16 +37,6 @@ header {
   margin-bottom: 2em;
   border-bottom: 1px solid gray;
   position: relative;
-}
-
-header h1 {
-  display: inline-block;
-}
-
-header nav {
-  position: absolute;
-  right: 1em;
-  bottom: 30%;
 }
 
 main {
