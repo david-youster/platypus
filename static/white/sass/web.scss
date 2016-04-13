@@ -1,9 +1,9 @@
 $font-stack-body: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 $font-stack-heading: Lora, Georgia, Times, "Times New Roman", serif;
 
-$color-primary: white;
-$color-secondary: white;
-$color-tertiary: white;
+$color-primary: #FAFAFA;
+$color-secondary: #EEE;
+$font-color: #222;
 
 $article-width: 61.8034%;
 
@@ -14,8 +14,9 @@ html, body {
 
 body {
   font-family: $font-stack-body;
-  background-color: $color-secondary;
   width:90%;
+  color: $font-color;
+  background-color: $color-primary;
 }
 
 h1 {
@@ -23,7 +24,7 @@ h1 {
 }
 
 a {
-  color: black;
+  color: $font-color;
   text-decoration: none;
 }
 
@@ -40,24 +41,21 @@ nav a {
 }
 
 body>header {
-  padding-left: 1em;
+  padding-left: 5em;
+  background-color: $color-secondary;
 }
 
 header {
   width: 100%;
-  background-color: $color-tertiary;
   padding-top: 1em;
   padding-bottom: 1em;
   margin-bottom: 2em;
-  border-bottom: 1px solid gray;
-  position: relative;
 }
 
 main {
   padding-left: 5em;
   padding-right: 2em;
   padding-bottom:1em;
-  background-color: $color-primary;
 }
 
 main h2 {
@@ -73,7 +71,6 @@ article {
 article header {
   border: none;
   box-shadow: none;
-  background-color: $color-primary;
 }
 
 article header h1 {
@@ -106,11 +103,6 @@ footer {
 
 table {
   width: 100%;
-  background-color: $color-secondary;
-}
-
-td {
-  background-color: $color-tertiary;
 }
 
 fieldset {
