@@ -1,36 +1,41 @@
-$font-stack-sans: Helvetica, Verdana, Geneva, sans-serif;
+$font-stack-serif: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 
-$color-primary: #E6EFFA;
-$color-secondary: #465B76;
-$color-tertiary: #C8D6E9;
+$color-primary: white;
+$color-secondary: white;
+$color-tertiary: white;
 
-$main-column-width: 70%;
+$article-width: 61.8034%;
 
 body {
-  font-family: $font-stack-sans;
+  font-family: $font-stack-serif;
   background-color: $color-secondary;
-  padding-left: 2em;
+  width:90%;
 }
 
 a {
   text-decoration: none;
+}
+
+.link-placeholder {
+  color: grey;
+}
+
+nav a {
   margin-left: 0.5em;
 }
 
 header {
-  width: $main-column-width;
+  width: 100%;
   background-color: $color-tertiary;
+  padding-top: 1em;
+  padding-bottom: 1em;
   margin-bottom: 2em;
-  border: 1px solid gray;
-  box-shadow: 1px 1px 1px black;
-  padding-left: 1em;
-  padding-right: 2em;
+  border-bottom: 1px solid gray;
   position: relative;
 }
 
 header h1 {
   display: inline-block;
-  margin-right:1em;
 }
 
 header nav {
@@ -40,13 +45,10 @@ header nav {
 }
 
 main {
-  width: $main-column-width;
-  padding-left: 1em;
+  padding-left: 5em;
   padding-right: 2em;
   padding-bottom:1em;
   background-color: $color-primary;
-  border: 1px solid gray;
-  box-shadow: 1px 1px 1px black;
 }
 
 main h2 {
@@ -54,8 +56,9 @@ main h2 {
 }
 
 article {
-  border-bottom: 1px solid $color-secondary;
-  background-color: $color-primary;
+  border-bottom: 1px solid gray;
+  width: $article-width;
+  padding-left: 1em;
 }
 
 article header {
@@ -64,18 +67,20 @@ article header {
   background-color: $color-primary;
 }
 
-article h1 {
+article header h1 {
   display: block;
-  font-size: 1.8em;
+  font-size: 3em;
 }
 
-article time, article address {
+
+article header time, article header address {
+  margin: 1em;
+  display: inline;
   font-size: 70%;
 }
 
 article p {
   font-size: 1.3em;
-  padding-left: 2em;
   padding-right: 2em;
   line-height: 1.7em;
   margin-bottom: 1.2em;
@@ -110,7 +115,7 @@ legend {
 
 form label {
   display: inline-block;
-  width:5em;
+  width:6em;
   text-align:right;
   vertical-align: top
 }
@@ -130,10 +135,14 @@ form#new-user input[type=text], form#new-user input[type=password] {
 
 
 form#new-article input[type=text], form#edit-article input[type=text] {
-  width:80%
+  width: 90%;
 }
 
 form#new-article textarea, form#edit-article textarea {
-  width:80%;
-  height:20em;
+  width:90%;
+  height:30em;
+}
+
+footer {
+  text-align: right;
 }

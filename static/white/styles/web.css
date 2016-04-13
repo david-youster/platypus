@@ -1,106 +1,111 @@
 body {
-  font-family: Helvetica, Verdana, Geneva, sans-serif;
-  background-color: #465B76;
-  padding-left: 2em; }
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  background-color: white;
+  width: 90%; }
 
   a {
-    text-decoration: none;
-    margin-left: 0.5em; }
+    text-decoration: none; }
 
-    header {
-      width: 70%;
-      background-color: #C8D6E9;
-      margin-bottom: 2em;
-      border: 1px solid gray;
-      box-shadow: 1px 1px 1px black;
-      padding-left: 1em;
-      padding-right: 2em;
-      position: relative; }
+    .link-placeholder {
+      color: grey; }
 
-      header h1 {
-        display: inline-block;
-        margin-right: 1em; }
+      nav a {
+        margin-left: 0.5em; }
 
-        header nav {
-          position: absolute;
-          right: 1em;
-          bottom: 30%; }
+        header {
+          width: 100%;
+          background-color: white;
+          padding-top: 1em;
+          padding-bottom: 1em;
+          margin-bottom: 2em;
+          border-bottom: 1px solid gray;
+          position: relative; }
 
-          main {
-            width: 70%;
-            padding-left: 1em;
-            padding-right: 2em;
-            padding-bottom: 1em;
-            background-color: #E6EFFA;
-            border: 1px solid gray;
-            box-shadow: 1px 1px 1px black; }
+          header h1 {
+            display: inline-block; }
 
-            main h2 {
-              font-size: 80%; }
+            header nav {
+              position: absolute;
+              right: 1em;
+              bottom: 30%; }
 
-              article {
-                border-bottom: 1px solid #465B76;
-                background-color: #E6EFFA; }
+              main {
+                padding-left: 5em;
+                padding-right: 2em;
+                padding-bottom: 1em;
+                background-color: white; }
 
-                article header {
-                  border: none;
-                  box-shadow: none;
-                  background-color: #E6EFFA; }
+                main h2 {
+                  font-size: 80%; }
 
-                  article h1 {
-                    display: block;
-                    font-size: 1.8em; }
+                  article {
+                    border-bottom: 1px solid gray;
+                    width: 61.8034%;
+                    padding-left: 1em; }
 
-                    article time, article address {
-                      font-size: 70%; }
+                    article header {
+                      border: none;
+                      box-shadow: none;
+                      background-color: white; }
 
-                      article p {
-                        font-size: 1.3em;
-                        padding-left: 2em;
-                        padding-right: 2em;
-                        line-height: 1.7em;
-                        margin-bottom: 1.2em; }
+                      article header h1 {
+                        display: block;
+                        font-size: 3em; }
 
-                        article p:first-child {
-                          margin-top: 2em; }
+                        article header time, article header address {
+                          margin: 1em;
+                          display: inline;
+                          font-size: 70%; }
 
-                          footer {
-                            margin-top: 1em;
-                            font-size: 70%; }
+                          article p {
+                            font-size: 1.3em;
+                            padding-right: 2em;
+                            line-height: 1.7em;
+                            margin-bottom: 1.2em; }
 
-                            table {
-                              width: 100%;
-                              background-color: #465B76; }
+                            article p:first-child {
+                              margin-top: 2em; }
 
-                              td {
-                                background-color: #C8D6E9; }
+                              footer {
+                                margin-top: 1em;
+                                font-size: 70%; }
 
-                                fieldset {
-                                  border: 1px solid lightgrey; }
+                                table {
+                                  width: 100%;
+                                  background-color: white; }
 
-                                  legend {
-                                    font-size: 0.8em;
-                                    color: gray; }
+                                  td {
+                                    background-color: white; }
 
-                                    form label {
-                                      display: inline-block;
-                                      width: 5em;
-                                      text-align: right;
-                                      vertical-align: top; }
+                                    fieldset {
+                                      border: 1px solid lightgrey; }
 
-                                      form .form-block {
-                                        margin-top: 0.5em;
-                                        margin-bottom: 0.5em; }
+                                      legend {
+                                        font-size: 0.8em;
+                                        color: gray; }
 
-                                        form#login-form label {
-                                          width: 7em; }
+                                        form label {
+                                          display: inline-block;
+                                          width: 6em;
+                                          text-align: right;
+                                          vertical-align: top; }
 
-                                          form#new-user input[type=text], form#new-user input[type=password] {
-                                            width: 25%; }
+                                          form .form-block {
+                                            margin-top: 0.5em;
+                                            margin-bottom: 0.5em; }
 
-                                            form#new-article input[type=text], form#edit-article input[type=text] {
-                                              width: 80%; }
+                                            form#login-form label {
+                                              width: 7em; }
 
-                                              form#new-article textarea, form#edit-article textarea {
-                                                width: 80%;
-                                                height: 20em; }
+                                              form#new-user input[type=text], form#new-user input[type=password] {
+                                                width: 25%; }
+
+                                                form#new-article input[type=text], form#edit-article input[type=text] {
+                                                  width: 90%; }
+
+                                                  form#new-article textarea, form#edit-article textarea {
+                                                    width: 90%;
+                                                    height: 30em; }
+
+                                                    footer {
+                                                      text-align: right; }

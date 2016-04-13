@@ -7,16 +7,18 @@
         <h1>{{ article.title }}</h1>
         <time>{{ article.publication_date }}</time>
         <address>{{ article.author.login }}</address>
+      </header>
+      <div>
+          {{ article.text | safe}}
+      </div>
+      <footer>
         {% if user_logged_in() and ((user_login() == article.author.login) or user_has_role('editor')) %}
           <nav>
             <a href="{{ url_for('article_edit', article_id=article.id_) }}">Edit</a>
             <a href="{{ url_for('article_delete', article_id=article.id_) }}">Delete</a>
           </nav>
         {% endif %}
-      </header>
-      <div>
-          {{ article.text | safe}}
-      </div>
+      </footer>
     {% else %}
       <p>Article not found.</p>
     {% endif %}

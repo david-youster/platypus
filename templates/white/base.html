@@ -12,6 +12,11 @@
     <div id="wrapper">
       <header>
         <h1><a href="{{ url_for('index') }}">Blog</a></h1>
+      </header>
+      <main>
+        {% block body %}{% endblock %}
+      </main>
+      <footer>
         <nav>
           {% if user_has_role('admin') %}
             <a href="{{ url_for('admin') }}">Admin</a>
@@ -25,11 +30,7 @@
             <a href="{{ url_for('login') }}">Log In</a>
           {% endif %}
         </nav>
-      </header>
-        <main>
-          {% if title %}<h2>{{ title }}</h2>{% endif %}
-          {% block body %}{% endblock %}
-        </main>
+      </footer>
     </div>
   </body>
 </html>
