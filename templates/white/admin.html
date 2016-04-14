@@ -1,7 +1,7 @@
 {% extends get_theme_file('base.html') %}
 
 {% block body %}
-  <form id="new-user" action="{{ url_for('admin_create_user') }}" method="post">
+  <form id="new-user" action="{{ url_for('user_create') }}" method="post">
     <fieldset>
       <legend>Create User</legend>
       <div class="form-block">
@@ -30,7 +30,7 @@
       <tr>
         <td><a href="{{ url_for('admin_display_user', user_login=user.login) }}">{{ user.login }}</a></td>
         <td>{% for role in user.roles %} {{ role.name }} {% endfor %}</td>
-        <td>{% if user.login != 'admin' %}<a href="{{ url_for('admin_delete_user', user_login=user.login) }}">Delete</a>{% else %}<span class="link-placeholder">Delete</span>{% endif %}</td>
+        <td>{% if user.login != 'admin' %}<a href="{{ url_for('user_delete', user_login=user.login) }}">Delete</a>{% else %}<span class="link-placeholder">Delete</span>{% endif %}</td>
       </tr>
     {% endfor %}
   </table>

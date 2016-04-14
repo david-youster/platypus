@@ -112,26 +112,26 @@ def admin():
         users=db.get_users())
 
 
-@app.route('/admin/createuser', methods=['POST'])
+@app.route('/user/create', methods=['POST'])
 @check_admin
-def admin_create_user():
-    create_user(
+def user_create():
+    create_new_user(
         request.form['login'],
         request.form['password'],
         request.form.getlist('roles'))
     return redirect(url_for('admin'))
 
 
-def create_user(login, password, roles):
+def create_new_user(login, password, roles):
     salt = generate_salt()
     password_hash = generate_password_hash(password, salt)
     roles = [db.get_role(role) for role in roles]
     db.create_user(login, password_hash, salt, roles)
 
 
-@app.route('/admin/deleteuser/<user_login>')
+@app.route('/user/delete/<user_login>')
 @check_admin
-def admin_delete_user(user_login):
+def user_delete(user_login):
     db.delete_user(user_login)
     return redirect(url_for('admin'))
 
@@ -191,9 +191,9 @@ def article_edit_post(article_id):
     return redirect(url_for('article_display', article_id=article_id))
 
 
-@app.route('/author/createarticle', methods=['POST'])
+@app.route('/article/create', methods=['POST'])
 @check_author
-def author_create_article():
+def article_create():
     db.create_article(
         request.form['title'],
         request.form['snippet'],

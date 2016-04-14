@@ -1,7 +1,7 @@
 {% extends get_theme_file('base.html') %}
 
 {% block body %}
-  <form id="new-article" method="post" action="{{ url_for('author_create_article') }}">
+  <form id="new-article" method="post" action="{{ url_for('article_create') }}">
     <fieldset>
       <legend>New Article</legend>
       <div class="form-block">
