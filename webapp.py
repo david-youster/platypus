@@ -237,6 +237,6 @@ def init_assets():
         assets.register('scss_web', scss)
 
 
+init()
 if __name__ == '__main__':
-    init()
     app.run(debug=True, host='0.0.0.0')
