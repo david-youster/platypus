@@ -26,7 +26,8 @@ html, body {
 
               body > header {
                 padding-left: 5em;
-                background-color: #EEE; }
+                background-color: #EEE;
+                font-size: 1.7em; }
 
                 header {
                   width: 100%;
