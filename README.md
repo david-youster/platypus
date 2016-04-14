@@ -1,2 +1,2 @@
-# Flask Blogging Application
+# Flask-based Blogging Application
 
