@@ -53,6 +53,7 @@ def user_has_role(role_name):
 @app.route('/home')
 @app.route('/index')
 def index():
+    page = request.args.get('page', 1)
     return render_template(
         get_theme_file('index.html'),
         title='Home',
