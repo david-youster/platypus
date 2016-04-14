@@ -136,12 +136,6 @@ def user_delete(user_login):
     return redirect(url_for('admin'))
 
 
-@app.route('/admin/displayuser/<user_login>')
-@check_admin
-def admin_display_user(user_login):
-    return 'Not implemented'
-
-
 @app.route('/author')
 @check_author
 def author():
