@@ -112,3 +112,7 @@ def delete_article(article_id):
     session.query(Article).filter(Article.id_ == article_id).delete(
         synchronize_session='evaluate')
     session.commit()
+
+
+def get_article_count():
+    return session.query(Article).count()
