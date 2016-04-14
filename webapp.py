@@ -149,7 +149,10 @@ def author():
 def article_display(article_id):
     article = db.get_article(article_id)
     article.text = markdown(article.text)
-    return render_template(get_theme_file('article.html'), article=article)
+    return render_template(
+        get_theme_file('article.html'),
+        title=article.title,
+        article=article)
 
 
 @app.route('/article/delete/<article_id>')
@@ -218,6 +221,7 @@ def init():
 
 def init_app():
     app.config['theme'] = 'white'
+    app.config['title'] = 'Platypus'
     app.secret_key = '9l2+y#cit1)yvm4douh_uv=wh1cm0w3nevpv7v(8$e*qan8n3+'
     app.jinja_env.globals.update(
         user_login=user_login,
