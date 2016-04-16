@@ -5,8 +5,7 @@ from functools import wraps
 from markdown import markdown
 from bleach import clean
 from math import ceil
-from util import generate_salt, generate_password_hash, get_theme_file
-from pager import Pager
+from util import generate_salt, generate_password_hash, get_theme_file, Pager
 import db
 
 app = Flask(__name__)
