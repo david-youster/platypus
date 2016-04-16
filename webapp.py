@@ -4,7 +4,9 @@ from flask.ext.assets import Bundle, Environment
 from functools import wraps
 from markdown import markdown
 from bleach import clean
+from math import ceil
 from util import generate_salt, generate_password_hash, get_theme_file
+from pager import Pager
 import db
 
 app = Flask(__name__)
@@ -53,11 +55,12 @@ def user_has_role(role_name):
 @app.route('/home')
 @app.route('/index')
 def index():
-    page = request.args.get('page', 1)
+    page = int(request.args.get('page', 1))
     return render_template(
         get_theme_file('index.html'),
         title='Home',
-        articles=db.get_articles())
+        articles=db.get_articles_paginated(page, 3),
+        pager=Pager(page, ceil(db.get_article_count() / 3)))
 
 
 @app.route('/login', methods=['GET', 'POST'])

@@ -13,4 +13,7 @@
     {% else %}
       <p>No content found.</p>
   {% endfor %}
+    {% if articles %}
+      <footer>{{ pager | safe}}</footer>
+    {% endif %}
 {% endblock %}

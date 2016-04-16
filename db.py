@@ -71,7 +71,7 @@ def get_articles():
 
 def get_articles_paginated(page_number, page_size):
     query = session.query(Article).order_by(Article.id_.desc())
-    return query.offset(page_number).limit(page_size).all()
+    return query.offset(page_number*page_size-page_size).limit(page_size).all()
 
 
 def get_articles_by_author(login):
