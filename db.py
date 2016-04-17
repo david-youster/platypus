@@ -2,9 +2,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy_utils import database_exists
-from util import generate_salt, generate_password_hash
+from util import generate_salt, generate_password_hash, read_config_file
 
-_DATABASE = 'sqlite:///test.db'
+config = read_config_file()
+
+_DATABASE = 'sqlite:///{}.db'.format(config['title'])
 
 setup = database_exists(_DATABASE)
 engine = create_engine(_DATABASE, echo=True)
