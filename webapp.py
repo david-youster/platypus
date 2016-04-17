@@ -6,6 +6,7 @@ from markdown import markdown
 from bleach import clean
 from math import ceil
 from util import generate_salt, generate_password_hash, get_theme_file, Pager
+import json
 import db
 
 app = Flask(__name__)
@@ -54,12 +55,13 @@ def user_has_role(role_name):
 @app.route('/home')
 @app.route('/index')
 def index():
+    articles_per_page = 10
     page = int(request.args.get('page', 1))
     return render_template(
         get_theme_file('index.html'),
         title='Home',
-        articles=db.get_articles_paginated(page, 3),
-        pager=Pager(page, ceil(db.get_article_count() / 3)))
+        articles=db.get_articles_paginated(page, articles_per_page),
+        pager=Pager(page, ceil(db.get_article_count() / articles_per_page)))
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -223,14 +225,20 @@ def init():
 
 
 def init_app():
+    config = read_config_file()
     app.config['theme'] = 'white'
-    app.config['title'] = 'Platypus'
-    app.secret_key = '9l2+y#cit1)yvm4douh_uv=wh1cm0w3nevpv7v(8$e*qan8n3+'
+    app.config['title'] = config['title']
+    app.secret_key = config['secret_key']
     app.jinja_env.globals.update(
         user_login=user_login,
         user_has_role=user_has_role,
         user_logged_in=user_logged_in,
         get_theme_file=get_theme_file)
+
+
+def read_config_file():
+    with open('config.json', 'r') as f:
+        return json.loads(f.read())
 
 
 def init_assets():
