@@ -4,6 +4,7 @@ $font-stack-heading: Lora, Georgia, Times, "Times New Roman", serif;
 $color-primary: #FAFAFA;
 $color-secondary: #EEE;
 $font-color: #2A2A2A;
+$article_separator-color: #DDD;
 
 $article-width: 70%;
 
@@ -65,7 +66,7 @@ main h2 {
 
 article {
   margin: 0 auto;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid $article-separator-color;
   width: $article-width;
   padding-left: 1em;
 }

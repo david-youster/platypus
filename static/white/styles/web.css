@@ -45,7 +45,7 @@ html, body {
 
                       article {
                         margin: 0 auto;
-                        border-bottom: 1px solid gray;
+                        border-bottom: 1px solid #DDD;
                         width: 70%;
                         padding-left: 1em; }
 
