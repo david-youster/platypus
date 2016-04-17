@@ -28,7 +28,7 @@
   <table>
     {% for user in users %}
       <tr>
-        <td><a href="{{ url_for('admin_display_user', user_login=user.login) }}">{{ user.login }}</a></td>
+        <td>{{ user.login }}</td>
         <td>{% for role in user.roles %} {{ role.name }} {% endfor %}</td>
         <td>{% if user.login != 'admin' %}<a href="{{ url_for('user_delete', user_login=user.login) }}">Delete</a>{% else %}<span class="link-placeholder">Delete</span>{% endif %}</td>
       </tr>
