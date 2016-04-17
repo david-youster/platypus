@@ -1,7 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy_utils import database_exists
+from datetime import datetime
 from util import generate_salt, generate_password_hash, read_config_file
 
 config = read_config_file()
@@ -46,7 +48,10 @@ def create_user(login, password_hash, salt, roles):
     for role in roles:
         user.roles.append(role)
     session.add(user)
-    session.commit()
+    try:
+        session.commit()
+    except IntegrityError as e:
+        print(str(e))
 
 
 def create_role(name):
@@ -103,6 +108,7 @@ def get_article_latest():
 def update_article(article_id, title, snippet, text):
     article = get_article(article_id)
     article.title, article.snippet, article.text = title, snippet, text
+    article.last_edit = datetime.now()
     session.commit()
 
 
