@@ -7,9 +7,11 @@ from util import generate_salt, generate_password_hash, read_config_file
 config = read_config_file()
 
 _DATABASE = 'sqlite:///{}.db'.format(config['title'])
+_DEV_DATABASE = 'sqlite:///{}-dev.db'.format(config['title'])
+database = _DEV_DATABASE if config['dev'] else _DATABASE
 
-setup = database_exists(_DATABASE)
-engine = create_engine(_DATABASE, echo=True)
+setup = database_exists(database)
+engine = create_engine(database, echo=True)
 session = scoped_session(sessionmaker(
     autocommit=False,
     autoflush=False,
