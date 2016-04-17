@@ -50,3 +50,8 @@ def generate_secret_key():
 
 def get_theme_file(file):
     return os.path.join(current_app.config['theme'], file)
+
+
+def read_config_file():
+    with open('config.json', 'r') as f:
+        return json.loads(f.read())

@@ -5,7 +5,9 @@ from functools import wraps
 from markdown import markdown
 from bleach import clean
 from math import ceil
-from util import generate_salt, generate_password_hash, get_theme_file, Pager
+from util import generate_salt, generate_password_hash
+from util import get_theme_file, read_config_file
+from util import Pager
 import json
 import db
 
@@ -234,11 +236,6 @@ def init_app():
         user_has_role=user_has_role,
         user_logged_in=user_logged_in,
         get_theme_file=get_theme_file)
-
-
-def read_config_file():
-    with open('config.json', 'r') as f:
-        return json.loads(f.read())
 
 
 def init_assets():
