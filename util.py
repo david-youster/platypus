@@ -56,3 +56,8 @@ def get_theme_file(file):
 def read_config_file():
     with open('config.json', 'r') as f:
         return json.loads(f.read())
+
+
+def save_config_file(config):
+    with open('config.json', 'w') as f:
+        f.write(json.dumps(config))
