@@ -4,4 +4,4 @@ __pycache__
 static/styles/
 static/.webassets-cache
 todo
-
+*.json
