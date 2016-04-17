@@ -1,6 +1,7 @@
 from flask import current_app, url_for
 import uuid
 import hashlib
+import binascii
 import os
 
 
@@ -41,6 +42,10 @@ def generate_password_hash(password, salt):
     """Generate a password hash using the provided salt."""
     salted_password = (password + salt).encode('utf-8')
     return hashlib.sha512(salted_password).hexdigest()
+
+
+def generate_secret_key():
+    return str(binascii.hexlify(os.urandom(24)))
 
 
 def get_theme_file(file):
