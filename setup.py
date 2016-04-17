@@ -6,7 +6,7 @@ config = {'title': None, 'secret_key': None, 'dev': True}
 
 def main():
     init_project()
-    save_config_file()
+    save_config_file(config)
     print('Finished setting up project. To start web application, run: ')
     print('python3 webapp.py')
 
