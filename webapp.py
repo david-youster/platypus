@@ -259,4 +259,4 @@ def init_assets():
 
 init()
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=util.read_config_file()['dev'], host='0.0.0.0')
