@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask import render_template, request, redirect, session, url_for
 from flask.ext.assets import Bundle, Environment
 from functools import wraps
@@ -8,6 +8,7 @@ from math import ceil
 from util import generate_salt, generate_password_hash
 from util import get_theme_file, read_config_file
 from util import Pager
+import os
 import json
 import db
 
@@ -205,6 +206,13 @@ def article_create():
         db.get_user(session.get('logged_in')))
     article_id = db.get_article_latest().id_
     return redirect(url_for('article_display', article_id=article_id))
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, 'static'),
+        'favicon.ico')
 
 
 @app.errorhandler(404)
