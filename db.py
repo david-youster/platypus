@@ -15,8 +15,8 @@ class DuplicateLoginException(Exception):
 
 config = read_config_file()
 
-_DATABASE = 'sqlite:///{}.db'.format(config['title'])
-_DEV_DATABASE = 'sqlite:///{}-dev.db'.format(config['title'])
+_DATABASE = 'sqlite:///platypus.db'
+_DEV_DATABASE = 'sqlite:///platypus-dev.db'
 database = _DEV_DATABASE if config['dev'] else _DATABASE
 
 setup = database_exists(database)
