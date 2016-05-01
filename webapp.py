@@ -136,7 +136,10 @@ def create_new_user(login, password, roles):
     salt = generate_salt()
     password_hash = generate_password_hash(password, salt)
     roles = [db.get_role(role) for role in roles]
-    db.create_user(login, password_hash, salt, roles)
+    try:
+        db.create_user(login, password_hash, salt, roles)
+    except db.DuplicateLoginException as e:
+        set_message(str(e))
 
 
 @app.route('/user/delete/<user_login>')

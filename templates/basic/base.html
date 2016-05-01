@@ -24,6 +24,7 @@
           {% elif title != 'Login' %}
             <a href="{{ url_for('login') }}">Log In</a>
           {% endif %}
+          <span>{{ get_message() }}</span>
         </nav>
       </header>
         <main>

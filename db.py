@@ -6,6 +6,13 @@ from sqlalchemy_utils import database_exists
 from datetime import datetime
 from util import generate_salt, generate_password_hash, read_config_file
 
+
+class DuplicateLoginException(Exception):
+
+    def __init__(self, message):
+        super(DuplicateLoginException, self).__init__(message)
+
+
 config = read_config_file()
 
 _DATABASE = 'sqlite:///{}.db'.format(config['title'])
@@ -51,7 +58,8 @@ def create_user(login, password_hash, salt, roles):
     try:
         session.commit()
     except IntegrityError as e:
-        print(str(e))
+        raise DuplicateLoginException(
+            'User with login "{}" already exists'.format(login))
 
 
 def create_role(name):
