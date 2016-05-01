@@ -235,7 +235,8 @@ def set_message(message):
 
 
 def get_message():
-    return session.pop('message', None)
+    message = session.pop('message', None)
+    return message if message else ''
 
 
 def init():
