@@ -58,7 +58,7 @@ def user_has_role(role_name):
 @app.route('/home')
 @app.route('/index')
 def index():
-    articles_per_page = 10
+    articles_per_page = read_config_file()['articles_per_page']
     page = int(request.args.get('page', 1))
     return render_template(
         get_theme_file('index.html'),

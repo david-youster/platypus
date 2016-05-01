@@ -5,7 +5,8 @@ config = {
     'title': None,
     'secret_key': None,
     'dev': True,
-    'port': 5000}
+    'port': 5000,
+    'articles_per_page': 10}
 
 
 def main():
