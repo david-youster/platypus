@@ -228,6 +228,14 @@ def shutdown_session(exception=None):
     db.session.remove()
 
 
+def set_message(message):
+    session['message'] = message
+
+
+def get_message():
+    return session.pop('message', None)
+
+
 def init():
     init_app()
     init_assets()
@@ -259,4 +267,4 @@ def init_assets():
 
 init()
 if __name__ == '__main__':
-    app.run(debug=util.read_config_file()['dev'], host='0.0.0.0')
+    app.run(debug=read_config_file()['dev'], host='0.0.0.0')
