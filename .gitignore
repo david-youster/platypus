@@ -1,7 +1,7 @@
 __pycache__
 *.db
 *sublime*
-static/styles/
+static/*/styles
 static/.webassets-cache
 todo
 *.json
