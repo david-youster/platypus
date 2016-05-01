@@ -11,8 +11,9 @@ config = {
 def main():
     init_project()
     save_config_file(config)
-    print('Finished setting up project. To start application, run: ')
+    print('Application setup complete. To launch, run: ')
     print('python3 webapp.py')
+
 
 def init_project():
     print('Initialising a new project...')
@@ -36,7 +37,7 @@ def read_port_number():
     if port.isnumeric():
         config['port'] = port
     else:
-        print('Invalid port number entered. The default will be used.')
+        print('Using default port number.')
 
 
 if __name__ == '__main__':
