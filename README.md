@@ -1,2 +1,2 @@
-# Flask-based Blogging Application
-
+# Platypus Blogging Engine
+A blogging engine built on (Flask)[http://flask.pocoo.org/]
