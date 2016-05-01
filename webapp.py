@@ -278,4 +278,3 @@ if __name__ == '__main__':
         debug=read_config_file()['dev'],
         host='0.0.0.0',
         port=read_config_file()['port'])
-
