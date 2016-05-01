@@ -89,6 +89,8 @@ def log_in_user(login, password):
     if credentials_ok(user, password):
         session['logged_in'] = user.login
         session['roles'] = [role.name for role in user.roles]
+    else:
+        set_message('Login failed')
 
 
 def credentials_ok(user, password):
