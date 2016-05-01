@@ -253,7 +253,8 @@ def init_app():
         user_login=user_login,
         user_has_role=user_has_role,
         user_logged_in=user_logged_in,
-        get_theme_file=get_theme_file)
+        get_theme_file=get_theme_file,
+        get_message=get_message)
 
 
 def init_assets():
