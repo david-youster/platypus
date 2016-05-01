@@ -81,7 +81,7 @@ def login_get():
 
 def login_post():
     log_in_user(request.form['login-name'], request.form['login-password'])
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 
 
 def log_in_user(login, password):
