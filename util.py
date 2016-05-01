@@ -60,4 +60,8 @@ def read_config_file():
 
 def save_config_file(config):
     with open('config.json', 'w') as f:
-        f.write(json.dumps(config))
+        f.write(json.dumps(
+            config,
+            sort_keys=True,
+            indent=4,
+            separators=(',', ': ')))
