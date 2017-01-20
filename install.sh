@@ -7,5 +7,5 @@ else
     args=''
 fi
 
-pip3 install $args flask flask-assets markdown bleach sqlalchemy sqlalchemy_utils
+pip3 install $args flask flask-assets markdown bleach sqlalchemy sqlalchemy_utils flask-scss
 
