@@ -1,0 +1,24 @@
+{% extends get_theme_file('base.html') %}
+
+{% block body %}
+  <form id="update-user" method="post" action="{{ url_for('user_update', username=user_login()) }}">
+    <fieldset>
+      <legend>Edit User {{ username }}</legend>
+      <div class="form-block">
+        <label for="old-password">Old Password</label>
+        <input type="password" id="old-password" name="old-password" required>
+      </div>
+      <div class="form-block">
+        <label>New Password</label>
+        <input type="password" id="new-password" name="new-password" required>
+      </div>
+      <div class="form-block">
+        <label>Confirm New Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+      </div>
+    </fieldset>
+    <div class="form-block">
+      <input type="submit" value="Submit Changes">
+    </div>
+  </form>
+{% endblock %}

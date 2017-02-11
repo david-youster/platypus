@@ -14,6 +14,13 @@ import db
 
 app = Flask(__name__)
 
+def check_login(function):
+    @wraps(function)
+    def wrapped_function(*args, **kwargs):
+        if user_logged_in():
+            return function(*args, **kwargs)
+        return redirect('/index')
+    return wrapped_function
 
 def check_admin(function):
     @wraps(function)
@@ -148,6 +155,23 @@ def user_delete(user_login):
     db.delete_user(user_login)
     return redirect(url_for('admin'))
 
+
+@app.route('/user/update/<username>', methods=['GET', 'POST'])
+@check_login
+def user_update(username):
+    if request.method == 'GET':
+        return user_update_get(username)
+    return user_update_post(username)
+
+def user_update_get(username):
+    if user_login() == username:
+        return render_template(
+            get_theme_file('user.html'),
+            title='Edit User')
+    return redirect(url_for('index'))
+
+def user_update_post(username):
+    return 'Not implemented'
 
 @app.route('/author')
 @check_author
