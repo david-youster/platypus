@@ -27,6 +27,7 @@
         {% endif %}
         {% if user_logged_in() %}
           <a href="{{ url_for('logout') }}">Log Out</a>
+          <a href="{{ url_for('user_update', username=user_login()) }}">Change Password</a>
         {% elif title != 'Login' %}
           <a href="{{ url_for('login') }}">Log In</a>
         {% endif %}
