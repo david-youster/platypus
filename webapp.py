@@ -14,6 +14,7 @@ import db
 
 app = Flask(__name__)
 
+
 def check_login(function):
     @wraps(function)
     def wrapped_function(*args, **kwargs):
@@ -21,6 +22,7 @@ def check_login(function):
             return function(*args, **kwargs)
         return redirect('/index')
     return wrapped_function
+
 
 def check_admin(function):
     @wraps(function)
@@ -163,6 +165,7 @@ def user_update(username):
         return user_update_get(username)
     return user_update_post(username)
 
+
 def user_update_get(username):
     if user_login() == username:
         return render_template(
@@ -170,8 +173,10 @@ def user_update_get(username):
             title='Edit User')
     return redirect(url_for('index'))
 
+
 def user_update_post(username):
     return 'Not implemented'
+
 
 @app.route('/author')
 @check_author
