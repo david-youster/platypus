@@ -5,6 +5,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy_utils import database_exists
 from datetime import datetime
 from util import generate_salt, generate_password_hash, read_config_file
+from util import generate_password_hash
 
 
 class DuplicateLoginException(Exception):
@@ -117,6 +118,20 @@ def update_article(article_id, title, snippet, text):
     article = get_article(article_id)
     article.title, article.snippet, article.text = title, snippet, text
     article.last_edit = datetime.now()
+    session.commit()
+
+
+def update_user_password(
+        login, old_password, new_password, confirmed_password):
+    user = get_user(login)
+    old_password_hash = generate_password_hash(old_password, user.salt)
+    if old_password_hash != user.password_hash:
+        raise Exception('Incorrect password.')
+    if new_password != confirmed_password:
+        raise Exception('Password and confirm password fields don\'t match.')
+    user.salt = generate_salt()
+    user.password_hash = generate_password_hash(
+        new_password, user.salt)
     session.commit()
 
 

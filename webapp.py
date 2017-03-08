@@ -175,7 +175,16 @@ def user_update_get(username):
 
 
 def user_update_post(username):
-    return 'Not implemented'
+    try:
+        db.update_user_password(
+            username,
+            request.form['old-password'],
+            request.form['new-password'],
+            request.form['confirm-password'])
+        set_message('Password successfully changed.')
+    except Exception as e:
+        set_message(str(e))
+    return redirect(url_for('index'))
 
 
 @app.route('/author')
