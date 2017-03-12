@@ -10,12 +10,18 @@
       </header>
       {{ article.text | safe}}
       <footer>
-        {% if user_logged_in() and ((user_login() == article.author.login) or user_has_role('editor')) %}
-          <nav>
+      <nav>
+          {% if previous %}
+            <a href="{{ url_for('article_display', article_id=previous.id_) }}">Previous</a>
+          {% endif %}
+          {% if next %}
+            <a href="{{ url_for('article_display', article_id=next.id_) }}">Next</a>
+          {% endif %}
+          {% if user_logged_in() and ((user_login() == article.author.login) or user_has_role('editor')) %}
             <a href="{{ url_for('article_edit', article_id=article.id_) }}">Edit</a>
             <a href="{{ url_for('article_delete', article_id=article.id_) }}">Delete</a>
-          </nav>
-        {% endif %}
+          {% endif %}
+        </nav>
       </footer>
     {% else %}
       <p>Article not found.</p>

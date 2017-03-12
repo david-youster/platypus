@@ -200,10 +200,14 @@ def author():
 def article_display(article_id):
     article = db.get_article(article_id)
     article.text = markdown(article.text)
+    next_article = db.get_article(int(article_id)+1)
+    previous_article = db.get_article(int(article_id)-1)
     return render_template(
         get_theme_file('article.html'),
         title=article.title,
-        article=article)
+        article=article,
+        next=next_article,
+        previous=previous_article)
 
 
 @app.route('/article/delete/<article_id>')
