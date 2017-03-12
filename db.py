@@ -5,7 +5,6 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy_utils import database_exists
 from datetime import datetime
 from util import generate_salt, generate_password_hash, read_config_file
-from util import generate_password_hash
 
 
 class DuplicateLoginException(Exception):
