@@ -67,7 +67,7 @@ def user_has_role(role_name):
 @app.route('/home')
 @app.route('/index')
 def index():
-    articles_per_page = read_config_file()['articles_per_page']
+    articles_per_page = read_config_file('articles_per_page')
     page = int(request.args.get('page', 1))
     return render_template(
         get_theme_file('index.html'),
@@ -287,10 +287,9 @@ def init():
 
 
 def init_app():
-    config = read_config_file()
     app.config['theme'] = 'white'
-    app.config['title'] = config['title']
-    app.secret_key = config['secret_key']
+    app.config['title'] = read_config_file('title')
+    app.secret_key = read_config_file('secret_key')
     app.jinja_env.globals.update(
         user_login=user_login,
         user_has_role=user_has_role,
@@ -313,6 +312,6 @@ def init_assets():
 init()
 if __name__ == '__main__':
     app.run(
-        debug=read_config_file()['dev'],
+        debug=read_config_file('dev'),
         host='0.0.0.0',
-        port=read_config_file()['port'])
+        port=read_config_file('port'))

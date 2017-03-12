@@ -53,9 +53,9 @@ def get_theme_file(file):
     return os.path.join(current_app.config['theme'], file)
 
 
-def read_config_file():
+def read_config_file(key):
     with open('config.json', 'r') as f:
-        return json.loads(f.read())
+        return json.loads(f.read())[key]
 
 
 def save_config_file(config):

@@ -12,12 +12,9 @@ class DuplicateLoginException(Exception):
     def __init__(self, message):
         super(DuplicateLoginException, self).__init__(message)
 
-
-config = read_config_file()
-
 _DATABASE = 'sqlite:///platypus.db'
 _DEV_DATABASE = 'sqlite:///platypus-dev.db'
-database = _DEV_DATABASE if config['dev'] else _DATABASE
+database = _DEV_DATABASE if read_config_file('dev') else _DATABASE
 
 setup = database_exists(database)
 engine = create_engine(database, echo=True)
