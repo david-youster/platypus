@@ -5,6 +5,8 @@ import binascii
 import json
 import os
 
+config = None
+
 
 class Pager:
 
@@ -54,8 +56,12 @@ def get_theme_file(file):
 
 
 def read_config_file(key):
+    if config:
+        return config[key]
     with open('config.json', 'r') as f:
-        return json.loads(f.read())[key]
+        global config
+        config = json.loads(f.read())
+        return config[key]
 
 
 def save_config_file(config):
